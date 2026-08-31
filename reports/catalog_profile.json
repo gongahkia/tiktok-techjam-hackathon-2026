@@ -1,0 +1,377 @@
+{
+  "catalog_sha256": "da979b05a68af864cb0dcf9ee6a81c010c7e66a57978ad286c7a2e005fc69a67",
+  "row_count": 50000,
+  "field_types": {
+    "parent_asin": "str",
+    "title": "str",
+    "features": "list",
+    "description": "list",
+    "price": "NoneType",
+    "categories": "list",
+    "details": "dict",
+    "average_rating": "float",
+    "rating_number": "int",
+    "store": "str"
+  },
+  "nonempty_counts": {
+    "average_rating": 50000,
+    "categories": 50000,
+    "description": 26113,
+    "details": 48330,
+    "features": 44781,
+    "parent_asin": 50000,
+    "price": 10527,
+    "rating_number": 50000,
+    "store": 49686,
+    "title": 49998
+  },
+  "title_character_count": {
+    "min": 1,
+    "median": 73,
+    "max": 290
+  },
+  "top_categories": [
+    [
+      "clothing shoes jewelry",
+      49990
+    ],
+    [
+      "women",
+      29435
+    ],
+    [
+      "clothing",
+      20523
+    ],
+    [
+      "men",
+      12420
+    ],
+    [
+      "shoes",
+      11810
+    ],
+    [
+      "jewelry",
+      5127
+    ],
+    [
+      "accessories",
+      4117
+    ],
+    [
+      "novelty more",
+      3376
+    ],
+    [
+      "novelty",
+      3208
+    ],
+    [
+      "tshirt",
+      2807
+    ],
+    [
+      "tops tees blouses",
+      2461
+    ],
+    [
+      "athletic",
+      2323
+    ],
+    [
+      "active",
+      2214
+    ],
+    [
+      "sandals",
+      2213
+    ],
+    [
+      "dresses",
+      2133
+    ],
+    [
+      "shirts",
+      2079
+    ],
+    [
+      "girls",
+      2051
+    ],
+    [
+      "lingerie sleep lounge",
+      1478
+    ],
+    [
+      "boys",
+      1319
+    ],
+    [
+      "earrings",
+      1250
+    ],
+    [
+      "watches",
+      1165
+    ],
+    [
+      "hats caps",
+      1155
+    ],
+    [
+      "necklaces",
+      1153
+    ],
+    [
+      "westlake",
+      1136
+    ],
+    [
+      "boot shop",
+      1131
+    ]
+  ],
+  "top_detail_keys": [
+    [
+      "date first available",
+      46886
+    ],
+    [
+      "department",
+      43582
+    ],
+    [
+      "item model number",
+      27729
+    ],
+    [
+      "package dimensions",
+      27061
+    ],
+    [
+      "manufacturer",
+      23512
+    ],
+    [
+      "is discontinued by manufacturer",
+      13070
+    ],
+    [
+      "product dimensions",
+      10210
+    ],
+    [
+      "item weight",
+      3243
+    ],
+    [
+      "color",
+      2439
+    ],
+    [
+      "brand",
+      2328
+    ],
+    [
+      "material",
+      2069
+    ],
+    [
+      "style",
+      1752
+    ],
+    [
+      "age range description",
+      1250
+    ],
+    [
+      "best sellers rank",
+      1127
+    ],
+    [
+      "size",
+      925
+    ],
+    [
+      "country of origin",
+      705
+    ],
+    [
+      "brand name",
+      610
+    ],
+    [
+      "part number",
+      576
+    ],
+    [
+      "suggested users",
+      535
+    ],
+    [
+      "package weight",
+      532
+    ],
+    [
+      "item package dimensions l x w x h",
+      531
+    ],
+    [
+      "batteries",
+      521
+    ],
+    [
+      "special feature",
+      478
+    ],
+    [
+      "closure type",
+      412
+    ],
+    [
+      "pattern",
+      377
+    ]
+  ],
+  "materials": [
+    [
+      "cotton",
+      20495
+    ],
+    [
+      "leather",
+      17589
+    ],
+    [
+      "polyester",
+      16740
+    ],
+    [
+      "rubber",
+      10506
+    ],
+    [
+      "spandex",
+      7992
+    ],
+    [
+      "nylon",
+      4060
+    ],
+    [
+      "suede",
+      2453
+    ],
+    [
+      "denim",
+      2051
+    ],
+    [
+      "wool",
+      1899
+    ],
+    [
+      "rayon",
+      1813
+    ],
+    [
+      "canvas",
+      1514
+    ],
+    [
+      "acrylic",
+      1359
+    ],
+    [
+      "silk",
+      993
+    ],
+    [
+      "linen",
+      886
+    ],
+    [
+      "viscose",
+      704
+    ],
+    [
+      "cashmere",
+      463
+    ]
+  ],
+  "colors": [
+    [
+      "black",
+      12534
+    ],
+    [
+      "silver",
+      9371
+    ],
+    [
+      "gold",
+      6926
+    ],
+    [
+      "white",
+      6682
+    ],
+    [
+      "blue",
+      4922
+    ],
+    [
+      "red",
+      3505
+    ],
+    [
+      "gray",
+      3439
+    ],
+    [
+      "pink",
+      2539
+    ],
+    [
+      "green",
+      2487
+    ],
+    [
+      "yellow",
+      2006
+    ],
+    [
+      "brown",
+      1765
+    ],
+    [
+      "navy",
+      1429
+    ],
+    [
+      "purple",
+      1112
+    ],
+    [
+      "orange",
+      724
+    ],
+    [
+      "khaki",
+      405
+    ],
+    [
+      "beige",
+      398
+    ],
+    [
+      "tan",
+      364
+    ],
+    [
+      "ivory",
+      170
+    ]
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "experiment_id": "baseline-weak-bm25-20260831",
+  "agent": "starter.agent.Agent at commit 3407835",
+  "command": "python3 -m evaluator.local_evaluator --catalog data/catalog.jsonl --dataset data/public_set.jsonl --output /tmp/facetflow-baseline-run-N.json",
+  "environment": {
+    "python": "3.14.7",
+    "catalog_sha256": "da979b05a68af864cb0dcf9ee6a81c010c7e66a57978ad286c7a2e005fc69a67",
+    "catalog_rows": 50000
+  },
+  "runs": [
+    {
+      "run": 1,
+      "result_sha256": "6db17fe0a1e81b6acf97de6bf985f47c3885f7a9994285c809051d0ccb536547",
+      "wall_seconds": 21.44,
+      "peak_rss_kib": 317332
+    },
+    {
+      "run": 2,
+      "result_sha256": "6db17fe0a1e81b6acf97de6bf985f47c3885f7a9994285c809051d0ccb536547",
+      "wall_seconds": 21.85,
+      "peak_rss_kib": 317888
+    },
+    {
+      "run": 3,
+      "result_sha256": "6db17fe0a1e81b6acf97de6bf985f47c3885f7a9994285c809051d0ccb536547",
+      "wall_seconds": 22.68,
+      "peak_rss_kib": 317544
+    }
+  ],
+  "deterministic": true,
+  "metrics": {
+    "sample_count": 200,
+    "hit_rate_at_10": 0.125,
+    "mrr": 0.068034,
+    "mttc": 9.81,
+    "efficiency": 0.119,
+    "recommended_technical_score": 0.10671,
+    "reported_token_usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    },
+    "scenario_metrics": {
+      "boundary": {"sample_count": 10, "hit_rate_at_10": 0.0, "mrr": 0.0, "mttc": 11.0},
+      "browsing": {"sample_count": 80, "hit_rate_at_10": 0.025, "mrr": 0.004514, "mttc": 10.75},
+      "buying": {"sample_count": 80, "hit_rate_at_10": 0.2375, "mrr": 0.126508, "mttc": 8.625},
+      "intent_override": {"sample_count": 30, "hit_rate_at_10": 0.133333, "mrr": 0.104167, "mttc": 10.066667}
+    }
+  }
+}

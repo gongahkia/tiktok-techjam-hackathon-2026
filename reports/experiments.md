@@ -1,0 +1,10 @@
+# FacetFlow experiment ledger
+
+This ledger is append-only. Evaluations use the unmodified official public evaluator and catalog.
+
+| ID | Hypothesis and configuration | Changed components | Metrics / runtime | Decision |
+| --- | --- | --- | --- | --- |
+| baseline-weak-bm25-20260831 | Reproduce the supplied starter without modifications. `python3 -m evaluator.local_evaluator`. | None. | HitRate@10 0.125000; MRR 0.068034; MTTC 9.810000; TechnicalScore 0.106710. Three byte-identical result files; 21.44–22.68 s; 317332–317888 KiB RSS. | Reference retained. |
+| sparse-stateful-bounded-v1 | Typed state plus weighted FTS, constraint verifier, bounded browsing diversity, and one broad information-gain question should improve exact-ID retrieval without a model. `python3 scripts/run_experiment.py --experiment-id sparse-stateful-bounded-v1 --output reports/experiment_sparse_stateful_v1.json`. | `facetflow/` package and thin starter adapter. | HitRate@10 0.550000; MRR 0.347373; MTTC 6.035000; TechnicalScore 0.478512. Browsing HitRate@10 0.612500. 82.93 s; 226524 KiB RSS; 215695360-byte cache; zero tokens. | Retained. |
+| robustness-reconciliation-v2 | Decimal-budget preservation, catalog/query typo normalization, explicit no-preference boundary routing, and `FACETFLOW_SPARSE_ONLY` should improve correctness and ablation clarity. | `facetflow/state.py`, `facetflow/text.py`, adapter/config trace, tests. | HitRate@10 0.530000; MRR 0.325290; MTTC 6.200000; TechnicalScore 0.458587. | Retained as a tested correctness/enabling capability despite a 0.019925 public-score regression from v1. |
+| final-cache-schema-v3 | Cache normalization rules must share a schema version with the current normalizer. Three official runs with `FACETFLOW_USE_OPENAI=0` and sparse-only mode. | Versioned index fingerprint and final reports. | HitRate@10 0.530000; MRR 0.325290; MTTC 6.200000; TechnicalScore 0.458587. Three byte-identical outputs; clean/warm wall 99.11/84.74–85.58 s; evaluator RSS 225676–226644 KiB. | Final retained configuration. |

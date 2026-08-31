@@ -2,6 +2,10 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .env
+.facetflow_cache/
+build/
+dist/
+*.egg-info/
 results.json
 data/catalog.jsonl
 data/releases/
