@@ -1,0 +1,5 @@
+{
+  "name": "m2_browsing_diversity_disabled",
+  "diversity_product_type_penalty": 0.0,
+  "diversity_brand_penalty": 0.0
+}

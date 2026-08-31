@@ -1,0 +1,174 @@
+{
+  "audit_version": "m2-overfitting-audit-v1",
+  "production_files": [
+    "facetflow/__init__.py",
+    "facetflow/agent.py",
+    "facetflow/catalog.py",
+    "facetflow/policy.py",
+    "facetflow/retrieval.py",
+    "facetflow/state.py",
+    "facetflow/text.py",
+    "starter/agent.py"
+  ],
+  "pattern_totals": {
+    "public_message_or_path": 0,
+    "catalog_identifier_literal": 0,
+    "evaluator_dependency": 0,
+    "runtime_network": 0,
+    "scenario_id_branch": 0
+  },
+  "files": [
+    {
+      "file": "facetflow/__init__.py",
+      "imports": [
+        "agent"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    },
+    {
+      "file": "facetflow/agent.py",
+      "imports": [
+        "__future__",
+        "catalog",
+        "os",
+        "pathlib",
+        "policy",
+        "retrieval",
+        "state"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": [
+        16,
+        17
+      ]
+    },
+    {
+      "file": "facetflow/catalog.py",
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sqlite3",
+        "state",
+        "tempfile",
+        "text",
+        "typing"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": [
+        51
+      ]
+    },
+    {
+      "file": "facetflow/policy.py",
+      "imports": [
+        "__future__",
+        "collections",
+        "dataclasses",
+        "math",
+        "retrieval",
+        "state"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    },
+    {
+      "file": "facetflow/retrieval.py",
+      "imports": [
+        "__future__",
+        "catalog",
+        "collections",
+        "dataclasses",
+        "math",
+        "re",
+        "state",
+        "text"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    },
+    {
+      "file": "facetflow/state.py",
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "re",
+        "text"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    },
+    {
+      "file": "facetflow/text.py",
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "re",
+        "unicodedata"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    },
+    {
+      "file": "starter/agent.py",
+      "imports": [
+        "facetflow.agent"
+      ],
+      "matches": {
+        "public_message_or_path": [],
+        "catalog_identifier_literal": [],
+        "evaluator_dependency": [],
+        "runtime_network": [],
+        "scenario_id_branch": []
+      },
+      "environment_references": []
+    }
+  ]
+}

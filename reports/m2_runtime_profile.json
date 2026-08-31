@@ -1,0 +1,15 @@
+{
+  "catalog": "data/catalog.jsonl",
+  "cache_dir": "/tmp/facetflow-m2-runtime-frozen-m1.aSDd1O",
+  "cold_initialization_seconds": 20.306136,
+  "response_count": 40,
+  "response_latency_ms": {
+    "median": 468.657898,
+    "p95": 554.891052,
+    "max": 589.850587
+  },
+  "index_size_bytes": 215601152,
+  "peak_rss_kib": 29664,
+  "network_calls": 0,
+  "reported_tokens": 0
+}

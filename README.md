@@ -78,6 +78,19 @@ The reproduced unmodified starter baseline is recorded in [reports/baseline_metr
 
 The three final official runs were byte-identical. Clean-cache profiling measured 15.67s agent initialization, 405.73ms median response latency, 442.26ms p95, 93.8 MiB agent RSS, and a 205.6 MiB derived index; the end-to-end official evaluator used 84.74–99.11s and 225,676–226,644 KiB RSS. Zero tokens were reported. Full ablation and repeated-final-run evidence is in the final evaluation report.
 
+## M2 generalization audit
+
+M2 keeps the M1 reranker as the default. It adds score-level inspection and a catalog-only, split shadow suite to test small ranking changes without fitting public evaluator messages or labels. Three predeclared candidates—lexical dampening, category emphasis, and adaptive hard-constraint emphasis—did not clear the locked development gate, so none was promoted. The selected unchanged M1 configuration scored exact HitRate@10/MRR of 1.000000/1.000000 and browsing acceptable recall@10 of 0.695652 on the one-time 182-case shadow holdout. See [the generalization result](reports/m2_generalization_results.md), [the ablation ledger](reports/m2_reranker_ablations.md), [the locked-suite design](reports/m2_shadow_eval_design.md), and [the decision record](docs/adr/0002-m2-reranker-decision.md).
+
+Reproduce the shadow checks with:
+
+```bash
+FACETFLOW_USE_OPENAI=0 FACETFLOW_SPARSE_ONLY=1 \
+  python3 scripts/m2_run_shadow_eval.py \
+  --manifest data/m2_shadow_manifest.json --catalog data/catalog.jsonl \
+  --split development --output reports/m2_shadow_m1_development.json
+```
+
 ## A compact multi-turn example
 
 1. Customer: “I’m looking for men’s shoes, but I’m still exploring.”
@@ -89,7 +102,7 @@ The three final official runs were byte-identical. Clean-cache profiling measure
 
 ## Limitations and next work
 
-Boundary sessions with no preference remain underdetermined under exact-product scoring. The present system is lexical-first and small typo/variant normalization is intentionally limited. The strongest next experiment is a held-out deterministic reranker ablation using catalog-derived field coverage and hard negatives; the larger remaining error bucket is retrieved candidates below Top-10, while semantic candidate generation is lower priority.
+Boundary sessions with no preference remain underdetermined under exact-product scoring. The present system is lexical-first and small typo/variant normalization is intentionally limited. The M2 audit found most public misses are ranking-stage but did not justify any tested reranker change; future work needs a newly locked catalog-only suite before testing a different candidate-generation or ranking approach.
 
 No paid API calls have been made. Optional online development tooling is not implemented, so there is no API cost.
 
