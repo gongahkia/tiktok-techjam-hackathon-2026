@@ -1,16 +1,12 @@
 <p align="center">
+<img alt="FacetFlow" src="asset/logo/flow.png" width="128">
+<br>
 <b>FacetFlow</b>
 <br>
 <em>Offline conversational shopping that keeps changing preferences grounded in a fixed catalogue</em>
 <br><br>
-<a title="Last Commit" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026/commits/main"><img src="https://img.shields.io/github/last-commit/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=FF9900"></a>
-<a title="GitHub Commits" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026/commits/main"><img src="https://img.shields.io/github/commit-activity/m/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square"></a>
-<a title="Code Size" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026"><img src="https://img.shields.io/github/languages/code-size/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=yellow"></a>
-<a title="Repository Size" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026"><img src="https://img.shields.io/github/repo-size/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=blueviolet"></a>
-<br>
 <a title="Python" target="_blank" href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.10%E2%80%933.14-3776AB?style=flat-square"></a>
 <a title="SQLite FTS5" target="_blank" href="https://www.sqlite.org/fts5.html"><img src="https://img.shields.io/badge/retrieval-SQLite%20FTS5-003B57?style=flat-square"></a>
-<a title="Offline Runtime" target="_blank" href="docs/architecture.md"><img src="https://img.shields.io/badge/runtime-offline-22C55E?style=flat-square"></a>
 </p>
 
 <p align="center">
