@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 from facetflow.agent import Agent
 from facetflow.catalog import CatalogIndex
-from facetflow.retrieval import M1_RERANKER_CONFIG, RerankerConfig, SparseRetriever
+from facetflow.retrieval import M1_RERANKER_CONFIG, RerankerConfig, ShadowReranker, SparseRetriever
 from facetflow.state import DialogueState
 from scripts.m2_run_shadow_eval import validate_manifest
 
@@ -61,7 +61,7 @@ class M2GeneralizationGuardrailTest(unittest.TestCase):
             try:
                 state = DialogueState.create("session", PROFILE)
                 state.ingest("I'm looking for Men Shoes. A key requirement is: cotton.", 1)
-                analysis = SparseRetriever(index).rank_candidates(state, 10)
+                analysis = ShadowReranker(index).rank_candidates(state, 10)
                 self.assertEqual(
                     [item.product.parent_asin for item in analysis.displayed],
                     [item.product.parent_asin for item in SparseRetriever(index).retrieve(state, 10).ranked],

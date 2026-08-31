@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT))
 
 from facetflow.catalog import CatalogIndex, catalog_fingerprint
 from facetflow.policy import ClarificationPolicy
-from facetflow.retrieval import M1_RERANKER_CONFIG, RerankerConfig, SparseRetriever
+from facetflow.retrieval import M1_RERANKER_CONFIG, RerankerConfig, ShadowReranker
 from facetflow.state import Belief, DialogueState
 
 
@@ -105,7 +105,7 @@ def bootstrap_interval(values: list[float], seed: str, samples: int = 400) -> di
     }
 
 
-def evaluate_case(case: dict, retriever: SparseRetriever, policy: ClarificationPolicy) -> dict:
+def evaluate_case(case: dict, retriever: ShadowReranker, policy: ClarificationPolicy) -> dict:
     acceptance = case["acceptance"]
     accepted = set(acceptance["acceptable_parent_asins"])
     analyses = []
@@ -239,7 +239,7 @@ def main() -> None:
     cases = [case for case in manifest["cases"] if args.split == "all" or case["split"] == args.split]
     index = CatalogIndex(args.catalog, args.cache_dir)
     try:
-        retriever = SparseRetriever(index, config)
+        retriever = ShadowReranker(index, config)
         policy = ClarificationPolicy()
         results = [evaluate_case(case, retriever, policy) for case in cases]
     finally:

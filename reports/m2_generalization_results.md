@@ -2,7 +2,7 @@
 
 ## Decision
 
-M1 remains FacetFlow's default reranker. The three bounded M2 hypotheses failed the locked catalog-only development gate, so retaining a new production ranking policy would not be evidence-backed. The selected configuration was therefore the unchanged `M1_RERANKER_CONFIG`; it was evaluated once on the holdout. Candidate configurations were not evaluated on holdout and no weight was changed after reading it.
+M1 remains FacetFlow's default reranker. The three bounded M2 hypotheses failed the locked catalog-only development gate, so retaining a new production ranking policy would not be evidence-backed. The selected system is therefore the unchanged M1 production `SparseRetriever`; its M2 shadow reference uses equivalent `M1_RERANKER_CONFIG` constants only for offline score inspection. It was evaluated once on the holdout. Candidate configurations were not evaluated on holdout and no weight was changed after reading it.
 
 ## Leakage and error audit
 
@@ -41,6 +41,8 @@ The diversity-removal ablation reached 0.774194 browsing recall (+0.032259) but 
 
 The no-preference boundary proxy still returns products (false-positive recommendation rate 1.0). This is an existing limitation of a contract that permits recommendations absent a preference; it is unchanged by M2 and is not claimed as an improvement.
 
-## Remaining gates
+## Public and runtime confirmation
 
-The public-evaluator and clean-profile regression gates are recorded after the final M2 verification run. They do not select a candidate: M1 has already been retained on development.
+Three final public evaluator replays of the restored M1 production path are byte-identical to one another and to the frozen M1 artifact (`92036d26b0e13e7a7d51b1423fdc85022c516965bcf7f0e79308d09d88891ff9`). Each reports technical score 0.458587, HitRate@10 0.530000, MRR 0.325290, MTTC 6.200000, browsing HitRate@10 0.575000, and zero reported tokens. These meet every public regression floor.
+
+Wheel build and the 17-test suite pass. The final clean-cache profile recorded 26.121372 s initialization, 1059.281705 ms median latency, 1580.654117 ms p95, 29,088 KiB RSS, a 215,601,152-byte index, and zero network calls/tokens. Its initialization and p95 do **not** reproduce the earlier M1 timing baseline (15.674744 s / 442.258690 ms) and exceed M2's timing gate. An AST comparison of every executable method in the production `SparseRetriever` against tag `facetflow-m1` is exact, and the public result bytes also match. Thus the late timing result is host-condition evidence, not a new-reranker regression; comparable-host timing remains unresolved and must be rechecked before making any renewed latency claim.

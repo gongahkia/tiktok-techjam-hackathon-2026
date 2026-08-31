@@ -68,8 +68,8 @@
     "unnecessary_question_rate": 0.102128,
     "ranking_movement_after_meaningful_change": 1.0,
     "latency_ms": {
-      "median": 298.09682,
-      "p95": 1381.631803
+      "median": 492.914949,
+      "p95": 1902.894511
     },
     "by_family": {
       "boundary": {
@@ -153,7 +153,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 751.722069,
+      "latency_ms": 417.467159,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -213,7 +213,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 365.251303,
+      "latency_ms": 162.607785,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -272,7 +272,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 752.406835,
+      "latency_ms": 334.016431,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -332,7 +332,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 847.691494,
+      "latency_ms": 576.458054,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -391,7 +391,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 329.314316,
+      "latency_ms": 242.011199,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -450,7 +450,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 574.578291,
+      "latency_ms": 320.605238,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -509,7 +509,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 423.3713,
+      "latency_ms": 302.335565,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -560,7 +560,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 671.775891,
+      "latency_ms": 367.872108,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -620,7 +620,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 1915.185719,
+      "latency_ms": 637.228365,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -679,7 +679,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 534.655044,
+      "latency_ms": 315.865598,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -728,7 +728,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 675.519163,
+      "latency_ms": 318.987417,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -788,7 +788,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 325.56192,
+      "latency_ms": 158.861354,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -839,7 +839,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 637.431862,
+      "latency_ms": 277.44167,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -898,7 +898,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 116.229943,
+      "latency_ms": 116.726356,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -957,7 +957,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 150.080162,
+      "latency_ms": 149.135041,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1016,7 +1016,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 388.29471,
+      "latency_ms": 349.85301,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1076,7 +1076,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 269.182245,
+      "latency_ms": 274.200006,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1135,7 +1135,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 204.660353,
+      "latency_ms": 253.311128,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1195,7 +1195,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 636.925973,
+      "latency_ms": 530.373117,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1255,7 +1255,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 211.296605,
+      "latency_ms": 124.776004,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1314,7 +1314,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 788.495622,
+      "latency_ms": 615.636379,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1373,7 +1373,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 319.793863,
+      "latency_ms": 425.211885,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1433,7 +1433,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 228.643456,
+      "latency_ms": 254.243716,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1493,7 +1493,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 329.114862,
+      "latency_ms": 397.410066,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1553,7 +1553,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 184.944945,
+      "latency_ms": 218.290889,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1603,7 +1603,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 487.899709,
+      "latency_ms": 682.830386,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1663,7 +1663,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 480.413351,
+      "latency_ms": 723.510707,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1723,7 +1723,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 432.279387,
+      "latency_ms": 563.801834,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1774,7 +1774,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 229.817569,
+      "latency_ms": 301.96372,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1834,7 +1834,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 430.843981,
+      "latency_ms": 794.646166,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1893,7 +1893,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 181.571033,
+      "latency_ms": 363.882723,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -1953,7 +1953,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 228.875814,
+      "latency_ms": 450.831456,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2013,7 +2013,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 83.450874,
+      "latency_ms": 192.563917,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2073,7 +2073,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 386.11581,
+      "latency_ms": 1009.331633,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2132,7 +2132,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 177.086567,
+      "latency_ms": 337.914294,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2191,7 +2191,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 169.012559,
+      "latency_ms": 202.98672,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2250,7 +2250,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 319.427823,
+      "latency_ms": 732.777822,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -2300,7 +2300,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 71.310782,
+      "latency_ms": 113.32185,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2338,7 +2338,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 70.651361,
+      "latency_ms": 97.497162,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2376,7 +2376,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 70.019844,
+      "latency_ms": 166.294198,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2414,7 +2414,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 73.310107,
+      "latency_ms": 198.994426,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2452,7 +2452,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.661019,
+      "latency_ms": 207.315557,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2490,7 +2490,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.885641,
+      "latency_ms": 181.974977,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2528,7 +2528,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 73.585101,
+      "latency_ms": 167.757934,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2566,7 +2566,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.392204,
+      "latency_ms": 132.830982,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2604,7 +2604,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.377301,
+      "latency_ms": 94.470757,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2642,7 +2642,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.279668,
+      "latency_ms": 116.647946,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2680,7 +2680,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.361196,
+      "latency_ms": 156.470869,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2718,7 +2718,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.079821,
+      "latency_ms": 94.671725,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2756,7 +2756,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.107757,
+      "latency_ms": 94.212738,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2794,7 +2794,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.356871,
+      "latency_ms": 101.023543,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2832,7 +2832,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.922427,
+      "latency_ms": 125.947594,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2870,7 +2870,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.742125,
+      "latency_ms": 134.27149,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2908,7 +2908,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 65.855972,
+      "latency_ms": 159.23403,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2946,7 +2946,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.338395,
+      "latency_ms": 125.43973,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -2984,7 +2984,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.989656,
+      "latency_ms": 116.643435,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3022,7 +3022,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 69.98489,
+      "latency_ms": 122.716265,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3060,7 +3060,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 69.743259,
+      "latency_ms": 163.961618,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3098,7 +3098,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 66.362613,
+      "latency_ms": 138.870852,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3136,7 +3136,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.618542,
+      "latency_ms": 162.036284,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3174,7 +3174,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.218747,
+      "latency_ms": 122.543372,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3212,7 +3212,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.316737,
+      "latency_ms": 96.334477,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3250,7 +3250,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.3572,
+      "latency_ms": 93.113505,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3288,7 +3288,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.46007,
+      "latency_ms": 97.307038,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3326,7 +3326,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.258829,
+      "latency_ms": 95.965837,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3364,7 +3364,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.018857,
+      "latency_ms": 139.698458,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3402,7 +3402,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.518868,
+      "latency_ms": 134.912773,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3440,7 +3440,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.65771,
+      "latency_ms": 142.677818,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3478,7 +3478,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.672705,
+      "latency_ms": 166.696504,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3516,7 +3516,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 67.347123,
+      "latency_ms": 143.040426,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3554,7 +3554,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.902063,
+      "latency_ms": 144.86933,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3592,7 +3592,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.563734,
+      "latency_ms": 140.796851,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3630,7 +3630,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 68.614101,
+      "latency_ms": 150.357195,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3668,7 +3668,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 69.095277,
+      "latency_ms": 99.123311,
       "final_state": {
         "scenario": "boundary",
         "hard": [],
@@ -3706,7 +3706,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 121.717121,
+      "latency_ms": 238.255031,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -3759,7 +3759,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 64.828191,
+      "latency_ms": 108.631477,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -3811,7 +3811,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 117.241667,
+      "latency_ms": 275.225437,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -3864,7 +3864,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 212.505583,
+      "latency_ms": 492.914949,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -3916,7 +3916,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 98.447217,
+      "latency_ms": 176.54831,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -3968,7 +3968,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 150.262745,
+      "latency_ms": 422.174781,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4020,7 +4020,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 168.897407,
+      "latency_ms": 450.221529,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4073,7 +4073,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 278.718868,
+      "latency_ms": 830.087292,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4125,7 +4125,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 140.991729,
+      "latency_ms": 325.334899,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4178,7 +4178,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 141.626368,
+      "latency_ms": 264.056407,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4230,7 +4230,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 72.809015,
+      "latency_ms": 137.210162,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4282,7 +4282,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 83.000167,
+      "latency_ms": 176.018569,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4334,7 +4334,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 175.478246,
+      "latency_ms": 421.674056,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4387,7 +4387,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 136.489027,
+      "latency_ms": 382.394936,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4439,7 +4439,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 124.132898,
+      "latency_ms": 394.056066,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4492,7 +4492,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 271.92044,
+      "latency_ms": 734.211039,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4545,7 +4545,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 94.560166,
+      "latency_ms": 143.818618,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4597,7 +4597,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 389.206273,
+      "latency_ms": 722.32653,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4649,7 +4649,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 212.065253,
+      "latency_ms": 545.029867,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4702,7 +4702,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 134.715764,
+      "latency_ms": 321.913724,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4755,7 +4755,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 202.423303,
+      "latency_ms": 562.574912,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4808,7 +4808,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 291.358449,
+      "latency_ms": 656.903723,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4861,7 +4861,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 305.58601,
+      "latency_ms": 776.209024,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4914,7 +4914,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 159.231516,
+      "latency_ms": 571.293861,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -4967,7 +4967,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 314.106068,
+      "latency_ms": 738.516213,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5019,7 +5019,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 138.664515,
+      "latency_ms": 312.267889,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5072,7 +5072,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 178.524348,
+      "latency_ms": 324.748641,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5125,7 +5125,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 66.572206,
+      "latency_ms": 113.850966,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5178,7 +5178,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 335.473681,
+      "latency_ms": 783.825172,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5230,7 +5230,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 156.008682,
+      "latency_ms": 328.235557,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5282,7 +5282,7 @@
       "asks": [
         "other"
       ],
-      "latency_ms": 184.968261,
+      "latency_ms": 192.047423,
       "final_state": {
         "scenario": "browsing",
         "hard": [
@@ -5336,7 +5336,7 @@
         null,
         null
       ],
-      "latency_ms": 575.11198,
+      "latency_ms": 609.824313,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5398,7 +5398,7 @@
         null,
         null
       ],
-      "latency_ms": 298.09682,
+      "latency_ms": 315.548676,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5459,7 +5459,7 @@
         null,
         null
       ],
-      "latency_ms": 468.969968,
+      "latency_ms": 596.411634,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5521,7 +5521,7 @@
         null,
         null
       ],
-      "latency_ms": 994.602938,
+      "latency_ms": 1361.319179,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5582,7 +5582,7 @@
         null,
         null
       ],
-      "latency_ms": 335.485042,
+      "latency_ms": 479.769427,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5643,7 +5643,7 @@
         null,
         null
       ],
-      "latency_ms": 560.26733,
+      "latency_ms": 1153.584506,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5704,7 +5704,7 @@
         null,
         null
       ],
-      "latency_ms": 647.714124,
+      "latency_ms": 921.475817,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5766,7 +5766,7 @@
         null,
         null
       ],
-      "latency_ms": 1381.631803,
+      "latency_ms": 1575.138012,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5827,7 +5827,7 @@
         null,
         null
       ],
-      "latency_ms": 485.977946,
+      "latency_ms": 776.424018,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5889,7 +5889,7 @@
         null,
         null
       ],
-      "latency_ms": 423.786946,
+      "latency_ms": 925.107445,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -5950,7 +5950,7 @@
         null,
         null
       ],
-      "latency_ms": 264.772577,
+      "latency_ms": 346.78578,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6011,7 +6011,7 @@
         null,
         null
       ],
-      "latency_ms": 282.918324,
+      "latency_ms": 516.778048,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6072,7 +6072,7 @@
         null,
         null
       ],
-      "latency_ms": 595.873604,
+      "latency_ms": 1083.543554,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6134,7 +6134,7 @@
         null,
         null
       ],
-      "latency_ms": 456.56132,
+      "latency_ms": 742.895379,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6195,7 +6195,7 @@
         null,
         null
       ],
-      "latency_ms": 417.966756,
+      "latency_ms": 742.253335,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6257,7 +6257,7 @@
         null,
         null
       ],
-      "latency_ms": 685.782508,
+      "latency_ms": 1859.32018,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6319,7 +6319,7 @@
         null,
         null
       ],
-      "latency_ms": 202.263927,
+      "latency_ms": 414.903982,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6380,7 +6380,7 @@
         null,
         null
       ],
-      "latency_ms": 884.305968,
+      "latency_ms": 1804.794029,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6441,7 +6441,7 @@
         null,
         null
       ],
-      "latency_ms": 578.886349,
+      "latency_ms": 1567.479683,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6503,7 +6503,7 @@
         null,
         null
       ],
-      "latency_ms": 353.125475,
+      "latency_ms": 637.032404,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6565,7 +6565,7 @@
         null,
         null
       ],
-      "latency_ms": 647.623816,
+      "latency_ms": 1200.235515,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6627,7 +6627,7 @@
         null,
         null
       ],
-      "latency_ms": 970.856604,
+      "latency_ms": 2030.609776,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6689,7 +6689,7 @@
         null,
         null
       ],
-      "latency_ms": 991.683498,
+      "latency_ms": 1706.543732,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6751,7 +6751,7 @@
         null,
         null
       ],
-      "latency_ms": 479.311705,
+      "latency_ms": 921.677037,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6813,7 +6813,7 @@
         null,
         null
       ],
-      "latency_ms": 1338.245586,
+      "latency_ms": 1676.187688,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6874,7 +6874,7 @@
         null,
         null
       ],
-      "latency_ms": 752.714172,
+      "latency_ms": 848.75283,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6936,7 +6936,7 @@
         null,
         null
       ],
-      "latency_ms": 1049.952732,
+      "latency_ms": 1931.603958,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -6998,7 +6998,7 @@
         null,
         null
       ],
-      "latency_ms": 435.36152,
+      "latency_ms": 650.266112,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7060,7 +7060,7 @@
         null,
         null
       ],
-      "latency_ms": 1566.245082,
+      "latency_ms": 3237.289235,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7121,7 +7121,7 @@
         null,
         null
       ],
-      "latency_ms": 808.083933,
+      "latency_ms": 1087.617831,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7182,7 +7182,7 @@
         null,
         null
       ],
-      "latency_ms": 1031.653502,
+      "latency_ms": 894.121182,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7242,7 +7242,7 @@
         null,
         null
       ],
-      "latency_ms": 1518.676591,
+      "latency_ms": 813.493372,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7305,7 +7305,7 @@
         null,
         null
       ],
-      "latency_ms": 644.921971,
+      "latency_ms": 412.376866,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7367,7 +7367,7 @@
         null,
         null
       ],
-      "latency_ms": 1567.348596,
+      "latency_ms": 807.145416,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7430,7 +7430,7 @@
         null,
         null
       ],
-      "latency_ms": 2557.029275,
+      "latency_ms": 1105.586257,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7492,7 +7492,7 @@
         null,
         null
       ],
-      "latency_ms": 1010.890115,
+      "latency_ms": 389.962614,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7554,7 +7554,7 @@
         null,
         null
       ],
-      "latency_ms": 1793.42147,
+      "latency_ms": 618.535779,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7616,7 +7616,7 @@
         null,
         null
       ],
-      "latency_ms": 1255.733334,
+      "latency_ms": 459.611334,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7670,7 +7670,7 @@
         null,
         null
       ],
-      "latency_ms": 1295.127638,
+      "latency_ms": 620.558161,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7733,7 +7733,7 @@
         null,
         null
       ],
-      "latency_ms": 2439.381664,
+      "latency_ms": 1195.108163,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7795,7 +7795,7 @@
         "other",
         "other"
       ],
-      "latency_ms": 1609.902865,
+      "latency_ms": 557.468646,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7847,7 +7847,7 @@
         null,
         null
       ],
-      "latency_ms": 1498.760741,
+      "latency_ms": 537.76174,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7910,7 +7910,7 @@
         null,
         null
       ],
-      "latency_ms": 475.767224,
+      "latency_ms": 276.763511,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -7964,7 +7964,7 @@
         null,
         null
       ],
-      "latency_ms": 760.156795,
+      "latency_ms": 670.453017,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8026,7 +8026,7 @@
         null,
         null
       ],
-      "latency_ms": 387.215683,
+      "latency_ms": 230.92902,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8088,7 +8088,7 @@
         null,
         null
       ],
-      "latency_ms": 664.842,
+      "latency_ms": 339.829901,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8150,7 +8150,7 @@
         null,
         null
       ],
-      "latency_ms": 1370.945775,
+      "latency_ms": 697.211896,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8213,7 +8213,7 @@
         null,
         null
       ],
-      "latency_ms": 1366.393412,
+      "latency_ms": 567.060908,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8275,7 +8275,7 @@
         null,
         null
       ],
-      "latency_ms": 1266.269779,
+      "latency_ms": 627.421723,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8338,7 +8338,7 @@
         null,
         null
       ],
-      "latency_ms": 2614.332862,
+      "latency_ms": 1445.735053,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8401,7 +8401,7 @@
         null,
         null
       ],
-      "latency_ms": 482.212152,
+      "latency_ms": 618.15012,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8463,7 +8463,7 @@
         null,
         null
       ],
-      "latency_ms": 2653.660624,
+      "latency_ms": 2132.053537,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8525,7 +8525,7 @@
         null,
         null
       ],
-      "latency_ms": 1127.40448,
+      "latency_ms": 1282.501579,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8588,7 +8588,7 @@
         null,
         null
       ],
-      "latency_ms": 781.704855,
+      "latency_ms": 870.578216,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8651,7 +8651,7 @@
         null,
         null
       ],
-      "latency_ms": 1391.496133,
+      "latency_ms": 1298.256149,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8714,7 +8714,7 @@
         null,
         null
       ],
-      "latency_ms": 845.290306,
+      "latency_ms": 539.945775,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8767,7 +8767,7 @@
         null,
         null
       ],
-      "latency_ms": 930.894662,
+      "latency_ms": 1293.951104,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8830,7 +8830,7 @@
         null,
         null
       ],
-      "latency_ms": 797.97895,
+      "latency_ms": 1374.140752,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8893,7 +8893,7 @@
         null,
         null
       ],
-      "latency_ms": 1058.725989,
+      "latency_ms": 1152.771059,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -8947,7 +8947,7 @@
         null,
         null
       ],
-      "latency_ms": 527.238708,
+      "latency_ms": 799.956014,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9010,7 +9010,7 @@
         null,
         null
       ],
-      "latency_ms": 1348.70731,
+      "latency_ms": 2152.465624,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9072,7 +9072,7 @@
         null,
         null
       ],
-      "latency_ms": 470.081536,
+      "latency_ms": 923.435265,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9135,7 +9135,7 @@
         null,
         null
       ],
-      "latency_ms": 563.542436,
+      "latency_ms": 1180.39895,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9198,7 +9198,7 @@
         null,
         null
       ],
-      "latency_ms": 217.710048,
+      "latency_ms": 435.811125,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9261,7 +9261,7 @@
         null,
         null
       ],
-      "latency_ms": 839.816814,
+      "latency_ms": 2271.274496,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9323,7 +9323,7 @@
         null,
         null
       ],
-      "latency_ms": 373.53309,
+      "latency_ms": 1095.645341,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9385,7 +9385,7 @@
         null,
         null
       ],
-      "latency_ms": 258.139201,
+      "latency_ms": 1128.370385,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9447,7 +9447,7 @@
         null,
         null
       ],
-      "latency_ms": 674.558848,
+      "latency_ms": 2171.410959,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9499,7 +9499,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 167.706349,
+      "latency_ms": 424.104324,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9568,7 +9568,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 89.222499,
+      "latency_ms": 238.987762,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9636,7 +9636,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 171.172269,
+      "latency_ms": 355.04802,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9705,7 +9705,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 297.082077,
+      "latency_ms": 663.461872,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9773,7 +9773,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 133.389856,
+      "latency_ms": 270.485207,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9841,7 +9841,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 248.390953,
+      "latency_ms": 524.02729,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9909,7 +9909,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 247.291441,
+      "latency_ms": 638.910863,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -9978,7 +9978,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 685.310467,
+      "latency_ms": 1147.212682,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10046,7 +10046,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 253.892111,
+      "latency_ms": 353.363872,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10115,7 +10115,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 235.635032,
+      "latency_ms": 424.533175,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10183,7 +10183,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 104.093096,
+      "latency_ms": 168.884062,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10251,7 +10251,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 143.821564,
+      "latency_ms": 280.162312,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10319,7 +10319,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 325.836126,
+      "latency_ms": 625.624448,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10388,7 +10388,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 189.253623,
+      "latency_ms": 302.95631,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10456,7 +10456,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 158.435858,
+      "latency_ms": 346.073746,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10525,7 +10525,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 334.191604,
+      "latency_ms": 580.552757,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10594,7 +10594,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 103.938445,
+      "latency_ms": 212.311094,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10662,7 +10662,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 383.273136,
+      "latency_ms": 823.039492,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10730,7 +10730,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 263.180753,
+      "latency_ms": 587.286133,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10799,7 +10799,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 181.532406,
+      "latency_ms": 558.662363,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10868,7 +10868,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 265.059606,
+      "latency_ms": 847.208297,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -10937,7 +10937,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 419.081582,
+      "latency_ms": 1345.165213,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11006,7 +11006,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 414.347882,
+      "latency_ms": 996.746326,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11075,7 +11075,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 190.954812,
+      "latency_ms": 385.327899,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11144,7 +11144,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 349.534419,
+      "latency_ms": 855.362789,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11212,7 +11212,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 151.391483,
+      "latency_ms": 344.347921,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11281,7 +11281,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 193.946784,
+      "latency_ms": 421.184973,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11350,7 +11350,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 76.110116,
+      "latency_ms": 162.002228,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11419,7 +11419,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 322.582584,
+      "latency_ms": 814.472381,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11487,7 +11487,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 151.15239,
+      "latency_ms": 354.188334,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11555,7 +11555,7 @@
       "asks": [
         null
       ],
-      "latency_ms": 139.194398,
+      "latency_ms": 264.55206,
       "final_state": {
         "scenario": "buying",
         "hard": [
@@ -11624,7 +11624,7 @@
         null,
         null
       ],
-      "latency_ms": 356.114043,
+      "latency_ms": 605.78198,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11687,7 +11687,7 @@
         null,
         null
       ],
-      "latency_ms": 151.197198,
+      "latency_ms": 290.489886,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11749,7 +11749,7 @@
         null,
         null
       ],
-      "latency_ms": 218.143581,
+      "latency_ms": 448.658346,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11812,7 +11812,7 @@
         null,
         null
       ],
-      "latency_ms": 436.473306,
+      "latency_ms": 1199.159942,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11874,7 +11874,7 @@
         null,
         null
       ],
-      "latency_ms": 190.199629,
+      "latency_ms": 484.658162,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11936,7 +11936,7 @@
         null,
         null
       ],
-      "latency_ms": 347.275401,
+      "latency_ms": 1035.686687,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -11998,7 +11998,7 @@
         null,
         null
       ],
-      "latency_ms": 270.918813,
+      "latency_ms": 788.214381,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12061,7 +12061,7 @@
         null,
         null
       ],
-      "latency_ms": 570.935765,
+      "latency_ms": 1849.809306,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12123,7 +12123,7 @@
         null,
         null
       ],
-      "latency_ms": 315.881233,
+      "latency_ms": 1256.209933,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12186,7 +12186,7 @@
         null,
         null
       ],
-      "latency_ms": 215.491428,
+      "latency_ms": 519.790199,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12248,7 +12248,7 @@
         null,
         null
       ],
-      "latency_ms": 147.271428,
+      "latency_ms": 247.565308,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12310,7 +12310,7 @@
         null,
         null
       ],
-      "latency_ms": 218.348166,
+      "latency_ms": 463.555814,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12372,7 +12372,7 @@
         null,
         null
       ],
-      "latency_ms": 337.795943,
+      "latency_ms": 854.587143,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12435,7 +12435,7 @@
         null,
         null
       ],
-      "latency_ms": 262.372879,
+      "latency_ms": 797.302102,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12497,7 +12497,7 @@
         null,
         null
       ],
-      "latency_ms": 293.59647,
+      "latency_ms": 1052.331022,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12560,7 +12560,7 @@
         null,
         null
       ],
-      "latency_ms": 472.397708,
+      "latency_ms": 1902.894511,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12623,7 +12623,7 @@
         null,
         null
       ],
-      "latency_ms": 198.008009,
+      "latency_ms": 688.964273,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12685,7 +12685,7 @@
         null,
         null
       ],
-      "latency_ms": 553.450345,
+      "latency_ms": 2246.880042,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12747,7 +12747,7 @@
         null,
         null
       ],
-      "latency_ms": 405.980635,
+      "latency_ms": 1593.413774,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12810,7 +12810,7 @@
         null,
         null
       ],
-      "latency_ms": 345.902136,
+      "latency_ms": 1098.515773,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12873,7 +12873,7 @@
         null,
         null
       ],
-      "latency_ms": 497.176912,
+      "latency_ms": 1550.147693,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12936,7 +12936,7 @@
         null,
         null
       ],
-      "latency_ms": 653.514625,
+      "latency_ms": 2563.331407,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -12999,7 +12999,7 @@
         null,
         null
       ],
-      "latency_ms": 640.943324,
+      "latency_ms": 2418.105609,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13062,7 +13062,7 @@
         null,
         null
       ],
-      "latency_ms": 337.58572,
+      "latency_ms": 1244.813871,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13125,7 +13125,7 @@
         null,
         null
       ],
-      "latency_ms": 615.373257,
+      "latency_ms": 2493.229462,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13187,7 +13187,7 @@
         null,
         null
       ],
-      "latency_ms": 271.775567,
+      "latency_ms": 903.682662,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13250,7 +13250,7 @@
         null,
         null
       ],
-      "latency_ms": 399.897389,
+      "latency_ms": 1394.044988,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13313,7 +13313,7 @@
         null,
         null
       ],
-      "latency_ms": 174.937609,
+      "latency_ms": 605.552227,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13376,7 +13376,7 @@
         null,
         null
       ],
-      "latency_ms": 781.743327,
+      "latency_ms": 2364.68686,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13438,7 +13438,7 @@
         null,
         null
       ],
-      "latency_ms": 313.505888,
+      "latency_ms": 751.60128,
       "final_state": {
         "scenario": "intent_override",
         "hard": [
@@ -13500,7 +13500,7 @@
         null,
         null
       ],
-      "latency_ms": 363.551846,
+      "latency_ms": 665.243891,
       "final_state": {
         "scenario": "intent_override",
         "hard": [

@@ -27,7 +27,7 @@ from evaluator.local_evaluator import (
 )
 from facetflow.catalog import CatalogIndex, Product, catalog_fingerprint
 from facetflow.policy import ClarificationPolicy
-from facetflow.retrieval import RankedProduct, RankingAnalysis, SparseRetriever
+from facetflow.retrieval import RankedProduct, RankingAnalysis, ShadowReranker
 from facetflow.state import DialogueState
 
 
@@ -122,7 +122,7 @@ def turn_record(
     }
 
 
-def replay_sample(sample: dict, categories: dict[str, list[str]], products: dict[str, dict], retriever: SparseRetriever) -> dict:
+def replay_sample(sample: dict, categories: dict[str, list[str]], products: dict[str, dict], retriever: ShadowReranker) -> dict:
     target = str(sample["ground_truth"]["parent_asin"])
     card = intent_card(products[target])
     seed = f"{sample.get('sample_id', '')}\0{sample.get('scenario_type', '')}"
@@ -298,7 +298,7 @@ def main() -> None:
     del catalog_ids
     index = CatalogIndex(args.catalog, args.cache_dir)
     try:
-        records = [replay_sample(sample, categories, products, SparseRetriever(index)) for sample in load_jsonl(args.dataset)]
+        records = [replay_sample(sample, categories, products, ShadowReranker(index)) for sample in load_jsonl(args.dataset)]
         result = {
             "diagnostic_version": DIAGNOSTIC_VERSION,
             "catalog_sha256": catalog_fingerprint(args.catalog),
