@@ -2,11 +2,16 @@
 
 FacetFlow is an offline decision-theoretic conversational shopping copilot. It does not use an agent swarm or a generative model at runtime. Ranking and wording are intentionally separate: deterministic retrieval selects valid catalog identifiers, then a short template explains the next action.
 
-```text
-catalog JSONL -> normalized versioned SQLite/FTS cache -> sparse candidate generation
-user turn -> typed belief state -> constraint verifier + deterministic reranker -> Top-K IDs
-                                      |                         |
-                                      +-> clarification value --+-> response template
+```mermaid
+flowchart LR
+    U[User message] --> P[Rule-based language understanding]
+    P --> M[Structured shopping memory]
+    M --> I[Intent routing]
+    I --> R[Catalogue retrieval]
+    R --> V[Constraint verification]
+    V --> K[Deterministic reranking]
+    K --> Q[Clarification decision]
+    Q --> O[Ranked catalog recommendations]
 ```
 
 `starter/agent.py` is the thin competition adapter. The substantive package is `facetflow/`:
@@ -16,6 +21,8 @@ user turn -> typed belief state -> constraint verifier + deterministic reranker 
 - `retrieval.py` performs title/category-weighted FTS candidate generation, field-aware coverage scoring, explicit material/color/budget checks, deterministic ties, and bounded browsing diversification.
 - `policy.py` estimates candidate product-type entropy and applies a turn-cost penalty before asking at most one `other` question. It returns recommendations in the same turn.
 - `agent.py` enforces the official response shape and caches unchanged state responses rather than recomputing them.
+
+“Specialised module” means a small deterministic code component with one job, not an LLM agent. Rules and regular expressions handle precise preference syntax; catalogue-derived vocabulary grounds the extracted attributes; SQLite FTS5 finds lexical candidates; verification rejects conflicting material, color, budget, and negative evidence; and ranking stays separate from response wording. A future language model could assist language interpretation, but it must not control catalog truth or invent product identifiers.
 
 The default is sparse-only (`FACETFLOW_SPARSE_ONLY=1`). Setting the flag to `0` is an explicit ablation request but currently reports a sparse fallback because no CPU model or vector artifact has yet demonstrated incremental value over this catalog-specific lexical and constraint path, and a model download cannot be a private-evaluation dependency. The cache makes query work bounded to FTS candidates rather than a catalog scan.
 

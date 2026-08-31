@@ -1,0 +1,874 @@
+{
+  "scenarios": [
+    {
+      "scenario": "main",
+      "description": "Preference memory, verified exclusion, and a material override.",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I'm looking for Men Shoes, but I'm still exploring.",
+          "assistant": "I found useful starting options. Which single requirement matters most for this choice?",
+          "ask_attribute": "other",
+          "products": [
+            {
+              "parent_asin": "B07T36CDD3",
+              "title": "hmlai clearance men summer casual slim fit big and tall pleated camouflage sport cotton cargo shorts with pockets",
+              "materials": [
+                "cotton",
+                "denim",
+                "nylon",
+                "linen"
+              ],
+              "colors": [
+                "white"
+              ],
+              "product_type": "active active shorts"
+            },
+            {
+              "parent_asin": "B08P9FKTCQ",
+              "title": "guoyuxiao men hoodies men winter fleece sweatshirt harajuku japanese streetwear hip hop yellow hoodie men sweatshirts yellow hoodie men asian xxxl",
+              "materials": [
+                "polyester",
+                "spandex"
+              ],
+              "colors": [
+                "yellow"
+              ],
+              "product_type": "active active sweatshirts"
+            },
+            {
+              "parent_asin": "B0783HJLBV",
+              "title": "urban fox men breeze lightweight shoes for men running shoes for men casual shoes walking shoes for men black white 12",
+              "materials": [
+                "rubber"
+              ],
+              "colors": [
+                "black",
+                "white"
+              ],
+              "product_type": "men"
+            },
+            {
+              "parent_asin": "B07FNZRD93",
+              "title": "urban fox men golf shirts for men short sleeve performance polo shirts for men heather dry fit moisture wicking",
+              "materials": [],
+              "colors": [],
+              "product_type": "active shirts tees"
+            },
+            {
+              "parent_asin": "B0BS98NVHG",
+              "title": "bwdbhd sweatpants for men with pockets men sweatpants big and tall jogger slim fit stretch workout pants",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [],
+              "product_type": "recreation men pants"
+            }
+          ],
+          "explain": {
+            "intent": "browsing",
+            "product_type": "men shoes",
+            "must_have": [],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": "other",
+              "reason": "one remaining requirement has positive expected ranking value",
+              "expected_gain": 2.7701618597959903
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "user": "For that, what matters is: black; leather.",
+          "assistant": "Here are the closest catalog matches for the preferences you shared.",
+          "ask_attribute": null,
+          "products": [
+            {
+              "parent_asin": "B07F6Y2CMD",
+              "title": "22mm genuine alligator crocodile skin leather watch strap band for men handmade black leather black stitching 13",
+              "materials": [
+                "leather"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "watches watch bands"
+            },
+            {
+              "parent_asin": "B018AKIC2Y",
+              "title": "18mm black genuine leather watchband beautiful ostrich grain medium padded replacement watchstrap that brings new life to any watch mens standard length",
+              "materials": [
+                "leather"
+              ],
+              "colors": [
+                "black",
+                "silver"
+              ],
+              "product_type": "watches watch bands"
+            },
+            {
+              "parent_asin": "B00R3NP7UK",
+              "title": "i runner men pro series black leather 10 5 medium d us",
+              "materials": [
+                "leather"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men"
+            },
+            {
+              "parent_asin": "B00VM856A8",
+              "title": "usa leather 1202 men black classic laced leather 4 button vest 5x large",
+              "materials": [
+                "leather"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "jackets coats vests"
+            },
+            {
+              "parent_asin": "B00E4DSBUU",
+              "title": "amazon collection men stainless steel silver tone black leather center design ring",
+              "materials": [
+                "leather"
+              ],
+              "colors": [
+                "silver",
+                "black"
+              ],
+              "product_type": "men rings"
+            }
+          ],
+          "explain": {
+            "intent": "browsing",
+            "product_type": "men shoes",
+            "must_have": [
+              "black",
+              "leather"
+            ],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": null,
+              "reason": "two explicit constraints already resolve the main ambiguity",
+              "expected_gain": 0.0
+            }
+          }
+        },
+        {
+          "turn": 3,
+          "user": "Actually, ignore my earlier preference. What I need is: cotton.",
+          "assistant": "I updated the recommendations to reflect your latest preference.",
+          "ask_attribute": null,
+          "products": [
+            {
+              "parent_asin": "B07J1L7CP9",
+              "title": "byther men batwing sleeve techwear chic black cotton layered poncho hoodie black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "fashion hoodies sweatshirts"
+            },
+            {
+              "parent_asin": "B07WQV1RDC",
+              "title": "dontemerson tshirt men cotton short sleeve tshirt fashion round neck tees m black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B073W9B2RG",
+              "title": "heihuohua men classic field coat cotton stand collar military windbreaker jacket black xl",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "lightweight jackets cotton"
+            },
+            {
+              "parent_asin": "B07PDSVHV7",
+              "title": "larry c adamson shinedown man tshirt men tshirt 100 cotton tshirt the latest 2019 3xl black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B00OWC7ICK",
+              "title": "dickies 2 pair men premium steel toe thermal cotton crew socks black 6 12",
+              "materials": [
+                "cotton",
+                "polyester",
+                "spandex"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "socks hosiery socks"
+            }
+          ],
+          "explain": {
+            "intent": "intent_override",
+            "product_type": "men shoes",
+            "must_have": [
+              "black",
+              "cotton"
+            ],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              }
+            ],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": null,
+              "reason": "two explicit constraints already resolve the main ambiguity",
+              "expected_gain": 0.0
+            }
+          }
+        },
+        {
+          "turn": 4,
+          "user": "I need something without leather.",
+          "assistant": "I updated the recommendations to reflect your latest preference.",
+          "ask_attribute": null,
+          "products": [
+            {
+              "parent_asin": "B07J1L7CP9",
+              "title": "byther men batwing sleeve techwear chic black cotton layered poncho hoodie black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "fashion hoodies sweatshirts"
+            },
+            {
+              "parent_asin": "B07WQV1RDC",
+              "title": "dontemerson tshirt men cotton short sleeve tshirt fashion round neck tees m black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B073W9B2RG",
+              "title": "heihuohua men classic field coat cotton stand collar military windbreaker jacket black xl",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "lightweight jackets cotton"
+            },
+            {
+              "parent_asin": "B07PDSVHV7",
+              "title": "larry c adamson shinedown man tshirt men tshirt 100 cotton tshirt the latest 2019 3xl black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B00OWC7ICK",
+              "title": "dickies 2 pair men premium steel toe thermal cotton crew socks black 6 12",
+              "materials": [
+                "cotton",
+                "polyester",
+                "spandex"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "socks hosiery socks"
+            }
+          ],
+          "explain": {
+            "intent": "intent_override",
+            "product_type": "men shoes",
+            "must_have": [
+              "black",
+              "cotton"
+            ],
+            "preferred": [],
+            "excluded": [
+              "leather"
+            ],
+            "context": [],
+            "preference_changes": [
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "material",
+                "value": "leather",
+                "reason": "conflicting_preference"
+              }
+            ],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 294,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": null,
+              "reason": "two explicit constraints already resolve the main ambiguity",
+              "expected_gain": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "buying",
+      "description": "A focused purchase request with two explicit catalog constraints.",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I'm looking for Women Clothing T-Shirts. A key requirement is: cotton.",
+          "assistant": "I found useful starting options. Which single requirement matters most for this choice?",
+          "ask_attribute": "other",
+          "products": [
+            {
+              "parent_asin": "B07PDSVHV7",
+              "title": "larry c adamson shinedown man tshirt men tshirt 100 cotton tshirt the latest 2019 3xl black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B07WQV1RDC",
+              "title": "dontemerson tshirt men cotton short sleeve tshirt fashion round neck tees m black",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "black"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B072BH1NWG",
+              "title": "tehran iran tshirt tshirt tshirt",
+              "materials": [
+                "cotton",
+                "polyester"
+              ],
+              "colors": [
+                "gray"
+              ],
+              "product_type": "tops tees tshirt"
+            },
+            {
+              "parent_asin": "B00XHAX4R6",
+              "title": "cafepress super librarian tshirt 100 cotton tshirt white",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "white"
+              ],
+              "product_type": "westlake"
+            },
+            {
+              "parent_asin": "B012P1OMKA",
+              "title": "cafepress gray s anatomy you re my p women classic tshirt womens cotton tshirt crew neck comfortable soft classic tshirt white",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "gray",
+                "white"
+              ],
+              "product_type": "tops tees tshirt"
+            }
+          ],
+          "explain": {
+            "intent": "buying",
+            "product_type": "women clothing tshirt",
+            "must_have": [
+              "cotton"
+            ],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": "other",
+              "reason": "one remaining requirement has positive expected ranking value",
+              "expected_gain": 1.550161859795991
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "user": "For that, what matters is: short sleeve; casual.",
+          "assistant": "Here are the closest catalog matches for the preferences you shared.",
+          "ask_attribute": null,
+          "products": [
+            {
+              "parent_asin": "B08BJPH5H9",
+              "title": "rose apothecary tshirt womens printed graphic tshirt summer casual short sleeve tops vintage funny flower cute letter pattern fitted tshirt cotton blend crew neck saying shirt blue xl",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "blue"
+              ],
+              "product_type": "westlake"
+            },
+            {
+              "parent_asin": "B01N66BXT4",
+              "title": "us marine corps short sleeve shirts 100 cotton casual mens shirts show your pride with our double flag gold globe marine corps foil stamp unisex tshirt for men or women xx large",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "gold"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B07H56H26J",
+              "title": "jnc men v neck casual slim fit long sleeve tshirt cotton shirts large 1 long sleeve gray",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "gray"
+              ],
+              "product_type": "men shirts tshirt"
+            },
+            {
+              "parent_asin": "B07GF3YT1X",
+              "title": "roolan womens fall cotton long sleeve tshirt casual plain round neck blouses tops with pocket white medium",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "white"
+              ],
+              "product_type": "tees blouses tshirt"
+            },
+            {
+              "parent_asin": "B07GXGXSM6",
+              "title": "janmid men casual slim fit long sleeve henley tshirt cotton shirts white l",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "white"
+              ],
+              "product_type": "men shirts tshirt"
+            }
+          ],
+          "explain": {
+            "intent": "buying",
+            "product_type": "women clothing tshirt",
+            "must_have": [
+              "cotton",
+              "casual"
+            ],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [
+              {
+                "attribute": "style",
+                "value": "short sleeve",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "style",
+                "value": "short sleeve",
+                "reason": "conflicting_preference"
+              },
+              {
+                "attribute": "style",
+                "value": "short sleeve",
+                "reason": "conflicting_preference"
+              }
+            ],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": null,
+              "reason": "two explicit constraints already resolve the main ambiguity",
+              "expected_gain": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "browsing",
+      "description": "Broad discovery followed by a preference that narrows the diverse starting set.",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I'm looking for Men Shoes, but I'm still exploring.",
+          "assistant": "I found useful starting options. Which single requirement matters most for this choice?",
+          "ask_attribute": "other",
+          "products": [
+            {
+              "parent_asin": "B07T36CDD3",
+              "title": "hmlai clearance men summer casual slim fit big and tall pleated camouflage sport cotton cargo shorts with pockets",
+              "materials": [
+                "cotton",
+                "denim",
+                "nylon",
+                "linen"
+              ],
+              "colors": [
+                "white"
+              ],
+              "product_type": "active active shorts"
+            },
+            {
+              "parent_asin": "B08P9FKTCQ",
+              "title": "guoyuxiao men hoodies men winter fleece sweatshirt harajuku japanese streetwear hip hop yellow hoodie men sweatshirts yellow hoodie men asian xxxl",
+              "materials": [
+                "polyester",
+                "spandex"
+              ],
+              "colors": [
+                "yellow"
+              ],
+              "product_type": "active active sweatshirts"
+            },
+            {
+              "parent_asin": "B0783HJLBV",
+              "title": "urban fox men breeze lightweight shoes for men running shoes for men casual shoes walking shoes for men black white 12",
+              "materials": [
+                "rubber"
+              ],
+              "colors": [
+                "black",
+                "white"
+              ],
+              "product_type": "men"
+            },
+            {
+              "parent_asin": "B07FNZRD93",
+              "title": "urban fox men golf shirts for men short sleeve performance polo shirts for men heather dry fit moisture wicking",
+              "materials": [],
+              "colors": [],
+              "product_type": "active shirts tees"
+            },
+            {
+              "parent_asin": "B0BS98NVHG",
+              "title": "bwdbhd sweatpants for men with pockets men sweatpants big and tall jogger slim fit stretch workout pants",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [],
+              "product_type": "recreation men pants"
+            }
+          ],
+          "explain": {
+            "intent": "browsing",
+            "product_type": "men shoes",
+            "must_have": [],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": "other",
+              "reason": "one remaining requirement has positive expected ranking value",
+              "expected_gain": 2.7701618597959903
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "user": "For that, what matters is: blue; comfort.",
+          "assistant": "Here are the closest catalog matches for the preferences you shared.",
+          "ask_attribute": null,
+          "products": [
+            {
+              "parent_asin": "B07MDYYJ76",
+              "title": "skdoiul blue tennis shoes for men mesh breathable comfort ahtletic walking sneakers man gym workout fashion casual sport running shoe size 9 5 1818 blue 43",
+              "materials": [],
+              "colors": [
+                "blue"
+              ],
+              "product_type": "running trail running"
+            },
+            {
+              "parent_asin": "B08ZK7NZBX",
+              "title": "skdoiul fashion men sport athletic walking shoes mesh breathable comfort sneakers runner jogging casual tennis sneakers lake blue size 13",
+              "materials": [],
+              "colors": [
+                "blue"
+              ],
+              "product_type": "running trail running"
+            },
+            {
+              "parent_asin": "B07PNHFNVL",
+              "title": "cior fantiny menas memory foam slippers comfort knitted cotton blend closed toe non slip house shoes indoor outdoor u118wmt002 blue m 46 47",
+              "materials": [
+                "cotton"
+              ],
+              "colors": [
+                "blue"
+              ],
+              "product_type": "men"
+            },
+            {
+              "parent_asin": "B08B5NVWDW",
+              "title": "tsiodfo men sport running sneakers tennis athletic walking shoes mesh breathable comfort fashion casual gym runner jogging sneakers navy blue size 12",
+              "materials": [
+                "rubber"
+              ],
+              "colors": [
+                "navy",
+                "blue"
+              ],
+              "product_type": "men"
+            },
+            {
+              "parent_asin": "B085FT43TV",
+              "title": "bocomal men fr jeans flame resistant pants low rise comfort 11 5oz 100 cotton blue denim fire retardant jeans 40w x 30l",
+              "materials": [
+                "cotton",
+                "denim"
+              ],
+              "colors": [
+                "blue"
+              ],
+              "product_type": "men jeans"
+            }
+          ],
+          "explain": {
+            "intent": "browsing",
+            "product_type": "men shoes",
+            "must_have": [
+              "blue",
+              "comfort"
+            ],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": null,
+              "reason": "two explicit constraints already resolve the main ambiguity",
+              "expected_gain": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "boundary",
+      "description": "A non-shopping request that exercises the contract-safe boundary response.",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I'm looking for something outside shopping, but I'm still exploring.",
+          "assistant": "I can recommend catalog matches, but I need a shopping category or requirement to narrow them safely.",
+          "ask_attribute": "other",
+          "products": [
+            {
+              "parent_asin": "B07PBX2YFS",
+              "title": "weavers villa women indian handicraft ethnic dupatta embellished dupatta chunni stole scarf",
+              "materials": [
+                "cotton",
+                "silk"
+              ],
+              "colors": [],
+              "product_type": "westlake"
+            },
+            {
+              "parent_asin": "B00R2MV57Q",
+              "title": "buenocn women hello kitty top handle bag bow decorated pu leather handbag shy381",
+              "materials": [
+                "leather"
+              ],
+              "colors": [],
+              "product_type": "top handle bags"
+            },
+            {
+              "parent_asin": "B0762K7LLC",
+              "title": "kaisun women ladies casual lightweight shoulder bag simple shopping bag",
+              "materials": [
+                "nylon"
+              ],
+              "colors": [],
+              "product_type": "girls accessories"
+            },
+            {
+              "parent_asin": "B07S88TKXW",
+              "title": "fesciory inspirational bracelets for women stainless steel engraved personalized positive mantra quote keep going cuff bangle college graduation christmas gifts for her",
+              "materials": [],
+              "colors": [
+                "silver"
+              ],
+              "product_type": "women bracelets cuff"
+            },
+            {
+              "parent_asin": "B09LRSPXBM",
+              "title": "afrizona 2022 christmas diamond hoop earrings for women shinning luxury round diamond earrings personality bright rhinestone earrings thanksgiving party festival holiday shopping gift essential",
+              "materials": [],
+              "colors": [
+                "gold",
+                "silver"
+              ],
+              "product_type": "women earrings hoop"
+            }
+          ],
+          "explain": {
+            "intent": "boundary",
+            "product_type": "something outside shopping",
+            "must_have": [],
+            "preferred": [],
+            "excluded": [],
+            "context": [],
+            "preference_changes": [],
+            "search": {
+              "initial_candidates": 300,
+              "constraint_qualified": 300,
+              "major_signals": [
+                "sparse lexical relevance",
+                "catalog category and field coverage",
+                "hard and negative constraint verification",
+                "stable parent_asin tie-breaking"
+              ]
+            },
+            "clarification": {
+              "asked": "other",
+              "reason": "one remaining requirement has positive expected ranking value",
+              "expected_gain": 2.8001618597959905
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

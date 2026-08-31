@@ -59,6 +59,14 @@ python3 scripts/analyze_errors.py \
 
 `FACETFLOW_CACHE_DIR` can point the derived index at a writable local cache. `FACETFLOW_SPARSE_ONLY=1` selects the measured default; `0` currently records an explicit sparse fallback because no dense artifact is packaged. `FACETFLOW_USE_OPENAI=0` is compatible with the default path; FacetFlow does not inspect an API key or make an API call.
 
+A clean-machine walkthrough, including a one-command verification target, is in [docs/reproducibility.md](docs/reproducibility.md). After the catalog is present, the shortest judge-facing demo is:
+
+```bash
+python3 -m facetflow.demo --scenario main --explain
+```
+
+The explanation is opt-in diagnostic output; it does not add fields to the official API response or affect ranking.
+
 ## Measured public results
 
 The reproduced unmodified starter baseline is recorded in [reports/baseline_metrics.json](reports/baseline_metrics.json). The final three-run evidence is in [reports/final_evaluation.md](reports/final_evaluation.md) and the exact official outputs are `reports/final_evaluation_run{1,2,3}.json`.

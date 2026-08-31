@@ -215,6 +215,19 @@ class CatalogIndex:
             ).fetchall()
         return [self._product(row) for row in rows]
 
+    def products_by_id(self, parent_asins: Iterable[str]) -> list[Product]:
+        """Fetch known catalog products in caller order for opt-in diagnostics."""
+        ordered = list(dict.fromkeys(str(parent_asin) for parent_asin in parent_asins))
+        if not ordered:
+            return []
+        placeholders = ", ".join("?" for _ in ordered)
+        rows = self.connection.execute(
+            f"SELECT p.*, 0.0 AS fts_score FROM products AS p WHERE p.parent_asin IN ({placeholders})",
+            ordered,
+        ).fetchall()
+        products = {str(row["parent_asin"]): self._product(row) for row in rows}
+        return [products[parent_asin] for parent_asin in ordered if parent_asin in products]
+
     def size_bytes(self) -> int:
         return self.path.stat().st_size
 
