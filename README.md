@@ -1,113 +1,182 @@
-# `FacetFlow` 
+<p align="center">
+<b>FacetFlow</b>
+<br>
+<em>Offline conversational shopping that keeps changing preferences grounded in a fixed catalogue</em>
+<br><br>
+<a title="Last Commit" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026/commits/main"><img src="https://img.shields.io/github/last-commit/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=FF9900"></a>
+<a title="GitHub Commits" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026/commits/main"><img src="https://img.shields.io/github/commit-activity/m/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square"></a>
+<a title="Code Size" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026"><img src="https://img.shields.io/github/languages/code-size/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=yellow"></a>
+<a title="Repository Size" target="_blank" href="https://github.com/gongahkia/tiktok-techjam-hackathon-2026"><img src="https://img.shields.io/github/repo-size/gongahkia/tiktok-techjam-hackathon-2026.svg?style=flat-square&color=blueviolet"></a>
+<br>
+<a title="Python" target="_blank" href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.10%E2%80%933.14-3776AB?style=flat-square"></a>
+<a title="SQLite FTS5" target="_blank" href="https://www.sqlite.org/fts5.html"><img src="https://img.shields.io/badge/retrieval-SQLite%20FTS5-003B57?style=flat-square"></a>
+<a title="Offline Runtime" target="_blank" href="docs/architecture.md"><img src="https://img.shields.io/badge/runtime-offline-22C55E?style=flat-square"></a>
+</p>
 
-FacetFlow is a fully offline, stateful shopping copilot that turns a changing conversation into grounded catalogue recommendations.
+<p align="center">
+<b>README</b>
+| <a href="docs/architecture.md">Architecture</a>
+| <a href="docs/competition_specification.md">Competition Specification</a>
+| <a href="DATA_ATTRIBUTION.md">Data Attribution</a>
+</p>
 
-It is the TikTok TechJam 2026 Track 4 submission candidate. The shipped system has no API key, network dependency, model download, vector database, or generative model.
+---
 
-## The problem
+## Table of Contents
 
-Ordinary keyword search loses context when a shopper adds a must-have, excludes a material, or corrects an earlier requirement. A useful shopping copilot must preserve the right state across turns without inventing products or treating every broad request as a purchase decision.
+* [💡 Introduction](#-introduction)
+* [🔮 Features](#-features)
+* [👥 Team Members](#-team-members)
+* [🏗️ Architecture and Ecosystem](#️-architecture-and-ecosystem)
+* [📊 Public Evaluation](#-public-evaluation)
+* [🚀 Setup](#-setup)
+  * [Install](#install)
+  * [Run](#run)
+  * [Verification](#verification)
+* [🛠️ Development Guide](#️-development-guide)
+* [⚠️ Limitations](#️-limitations)
 
-## The solution
+---
 
-FacetFlow keeps conversational understanding, preference state, shopping intent, retrieval, ranking, and clarification as specialised deterministic components. It remembers explicit preferences, applies corrections and exclusions, distinguishes browsing from active buying, and only asks one focused question when it can improve a broad search.
+## 💡 Introduction
+
+FacetFlow is a fully offline, stateful shopping copilot for the TikTok TechJam 2026 Track 4 catalogue. It preserves the preferences that matter across turns—requirements, corrections, and exclusions—then returns only grounded catalogue recommendations.
+
+The runtime is deterministic Python and SQLite FTS5. It uses no API key, network service, model download, hosted vector database, or generative model.
+
+## 🔮 Features
+
+* Conversational preference memory
+  * Retains explicit requirements across turns
+  * Replaces stale preferences after corrections
+  * Applies exclusions before recommendations are returned
+* Grounded product retrieval
+  * Searches the fixed catalogue with SQLite FTS5
+  * Verifies material, colour, budget, and negative constraints
+  * Uses stable `parent_asin` tie-breaking
+* Shopping-aware interaction
+  * Separates browsing from buying intent
+  * Asks at most one focused clarification for genuinely broad requests
+  * Keeps explainability outside the official response contract
+* Offline reproducibility
+  * No runtime third-party dependency
+  * No network requests or credentials
+  * Local evaluator and deterministic tests
+
+## 👥 Team Members
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/gongahkia">
+          <img src="https://avatars.githubusercontent.com/u/117062305?v=4" width="100" alt="gongahkia"/>
+          <br />
+          <sub><b>Gabriel Ong</b></sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/kopicplusplus">
+          <img src="https://avatars.githubusercontent.com/u/262940233?v=4" width="100" alt="kopicplusplus"/>
+          <br />
+          <sub><b>Keith Tang</b></sub>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## 🏗️ Architecture and Ecosystem
+
+| Component | Description | Entry point |
+| --- | --- | --- |
+| Competition adapter | Implements the required `Agent` interface | [`starter/agent.py`](starter/agent.py) |
+| Dialogue state | Stores preferences, corrections, exclusions, and context | [`facetflow/state.py`](facetflow/state.py) |
+| Retrieval and ranking | Searches and orders catalogue candidates deterministically | [`facetflow/retrieval.py`](facetflow/retrieval.py) |
+| Catalogue store | Builds the local fingerprinted SQLite/FTS cache | [`facetflow/catalog.py`](facetflow/catalog.py) |
+| Clarification policy | Decides whether one additional question is useful | [`facetflow/policy.py`](facetflow/policy.py) |
+| Local evaluator | Replays the supplied public sessions | [`evaluator/local_evaluator.py`](evaluator/local_evaluator.py) |
 
 ```mermaid
 flowchart LR
-    U[User message] --> I[Preference and intent interpretation]
-    I --> S[Session state]
-    S --> R[Catalogue retrieval]
-    R --> D[Deterministic reranking]
-    D --> C{Need clarification?}
-    C -->|yes| Q[One focused question]
-    C -->|no| O[Grounded recommendations]
+    U[User message] --> P[Preference and intent parser]
+    P --> S[Structured session state]
+    S --> R[SQLite FTS5 retrieval]
+    R --> V[Constraint verification]
+    V --> K[Deterministic reranking]
+    K --> Q[Clarification policy]
+    Q --> O[Grounded recommendations]
 ```
 
-Catalogue retrieval and ranking remain deterministic and only return IDs from the frozen catalogue. See [the architecture](docs/architecture.md) for the component boundaries.
+Read the component-level [architecture guide](docs/architecture.md) for the runtime boundary and state semantics.
 
-## Quick start
+## 📊 Public Evaluation
 
-FacetFlow needs Python 3.10–3.14, SQLite FTS5, and the official 50,000-product catalogue. It has no runtime third-party dependencies.
+| Metric | Starter baseline | FacetFlow |
+| --- | ---: | ---: |
+| TechnicalScore | 0.106710 | 0.458587 |
+| HitRate@10 | 0.125000 | 0.530000 |
+| MRR | 0.068034 | 0.325290 |
+| Browsing HitRate@10 | 0.025000 | 0.575000 |
 
-1. Download `catalog.jsonl.gz` and `SHA256SUMS` from the challenge release.
-2. Verify and unpack the catalogue:
+These are public evaluator results. Private-evaluator performance is unknown.
 
-   ```bash
-   sha256sum -c SHA256SUMS
-   gzip -dk catalog.jsonl.gz
-   mv catalog.jsonl data/catalog.jsonl
-   ```
+## 🚀 Setup
 
-3. Run the real offline demo:
+FacetFlow requires Python 3.10–3.14, SQLite FTS5, and the official 50,000-product catalogue. No environment variable or runtime credential is required.
 
-   ```bash
-   make demo
-   ```
-
-The first run builds an ignored SQLite/FTS cache beside the project; later runs reuse it. `make demo` uses the real production agent, explains the current state, and makes no network request. If the catalogue is missing, the demo exits with a download-path error. For a four-scenario recording run, use:
+### Install
 
 ```bash
-FacetFlow_USE_OPENAI=0 FacetFlow_SPARSE_ONLY=1 \
-  python3 -m FacetFlow.demo --scenario all --explain --format terminal \
-  --catalog data/catalog.jsonl --cache-dir .FacetFlow_cache
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
 ```
 
-See the step-by-step [judge quick start](docs/submission/judge_quickstart.md) for clean-machine setup and troubleshooting.
+### Run
 
-## What the demo shows
+Download `catalog.jsonl.gz` and `SHA256SUMS` from the challenge release, then verify and unpack the catalogue:
 
-- Preference memory across turns
-- Correction and override of a stale requirement
-- Exclusion safety for a forbidden material
-- A useful clarification for a genuinely broad browsing request
+```bash
+sha256sum -c SHA256SUMS
+gzip -dk catalog.jsonl.gz
+mv catalog.jsonl data/catalog.jsonl
+make demo
+```
 
-The terminal view shows the current interpreted state, shopping intent, exclusions, clarification reason, and real returned catalogue IDs. It never adds explainability fields to the official `Agent.respond` contract.
+For the full four-scenario terminal demo:
 
-## Public evaluator results
+```bash
+FACETFLOW_SPARSE_ONLY=1 \
+  python3 -m facetflow.demo --scenario all --explain --format terminal \
+  --catalog data/catalog.jsonl --cache-dir .facetflow_cache
+```
 
-These are public evaluator results, not hidden-test results. Hidden-test performance is unknown, and public-data optimisation does not prove generalisation. Three final runs were byte-identical.
+The first run builds an ignored SQLite/FTS cache in `.facetflow_cache`. Subsequent runs reuse the cache when its catalogue fingerprint matches.
 
-| Metric | Starter baseline | FacetFlow | Absolute change | Multiplicative change |
-| --- | ---: | ---: | ---: | ---: |
-| TechnicalScore | 0.106710 | 0.458587 | +0.351877 | 4.297507× |
-| HitRate@10 | 0.125000 | 0.530000 | +0.405000 | 4.240000× |
-| MRR | 0.068034 | 0.325290 | +0.257256 | 4.781286× |
-| Browsing HitRate@10 | 0.025000 | 0.575000 | +0.550000 | 23.000000× |
-
-The canonical evidence, exact outputs, and fingerprint `92036d…91ff9` are in [the final submission evidence](reports/final_submission_evidence.md) and [the detailed public evaluation](reports/final_evaluation.md).
-
-## Why deterministic components
-
-FacetFlow uses structured dialogue state, catalogue-aware parsing, sparse retrieval, field weighting, deterministic reranking, and a turn-aware clarification policy together. It does not present internal modules as autonomous agents. This separation keeps product truth grounded in the frozen catalogue and makes repeated runs reproducible.
-
-M2 tested three bounded reranking hypotheses on a locked shadow suite; none justified replacing the production reranker. We also evaluated a model-primary language interpreter through 120 live provider invocations. Although it improved selected development categories, its interpretations were not stable enough for promotion: development stability was 10% across all three repetitions and 23.33% pairwise, with holdout intentionally untouched. The submitted system therefore remains deterministic and offline.
-
-## Repository map
-
-| Path | Purpose |
-| --- | --- |
-| `starter/agent.py` | Official `Agent` entry point |
-| `FacetFlow/` | Deterministic dialogue, retrieval, ranking, policy, and demo code |
-| `evaluator/` | Local public evaluator |
-| `data/` | Public sessions and catalogue acquisition notes |
-| `reports/` | Reproducible public evaluation and submission evidence |
-| `docs/submission/` | Judge quick start, Devpost draft, video package, and release checklist |
-
-## Reproduce and test
+### Verification
 
 ```bash
 make test-warnings
+make build
 make index
 make evaluate
-python3 -m FacetFlow.demo --scenario all --explain --format terminal
 ```
 
-`make evaluate` writes a public evaluator replay with zero reported model tokens. For the complete clean-machine workflow, see [reproducibility.md](docs/reproducibility.md). The release checklist separates automated checks from actions that require a human account or judgement.
+`make evaluate` writes a local replay to `reports/repro_evaluation.json`; that generated directory is ignored by Git.
 
-## Limitations
+## 🛠️ Development Guide
 
-FacetFlow is lexical-first and operates only on the frozen competition catalogue. Boundary sessions can be underdetermined, and it does not provide cross-store search, live pricing, checkout, customer service, external browsing, or claims about private-evaluator performance. Performance timing is host-dependent; the recorded profiling results are evidence, not a universal latency guarantee.
+Read the project in this order:
 
-## Data, contributions, and submission materials
+1. [`Makefile`](Makefile)
+2. [`starter/agent.py`](starter/agent.py)
+3. [`facetflow/agent.py`](facetflow/agent.py)
+4. [`facetflow/retrieval.py`](facetflow/retrieval.py)
+5. [`docs/architecture.md`](docs/architecture.md)
 
-The catalogue derives from Amazon Reviews 2023; see [DATA_ATTRIBUTION.md](DATA_ATTRIBUTION.md). Team contributions require final confirmation and are intentionally left as concise placeholders in [the Devpost draft](docs/submission/devpost.md). The complete recording package and manual handoff are in [docs/submission](docs/submission/).
+The public evaluator contract and competition constraints remain in [`docs/`](docs/). Catalogue provenance is documented in [DATA_ATTRIBUTION.md](DATA_ATTRIBUTION.md).
+
+## ⚠️ Limitations
+
+FacetFlow is lexical-first and operates only on the frozen competition catalogue. It does not provide cross-store search, live pricing, checkout, customer service, or private-evaluator claims. Broad boundary requests can remain underdetermined.

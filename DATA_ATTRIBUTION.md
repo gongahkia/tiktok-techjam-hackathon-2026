@@ -11,4 +11,4 @@ The competition package does not contain images, videos, account credentials, pr
 
 Participants must follow the source dataset's applicable terms and use the data only for the competition, research, and other permitted purposes. The competition organizer does not claim ownership of the underlying Amazon review or product content.
 
-The catalogue is intentionally absent from the repository. Follow the checksum and download steps in [the judge quick start](docs/submission/judge_quickstart.md), and do not commit downloaded catalogue data, private evaluator data, caches, or credentials.
+The catalogue is intentionally absent from the repository. Follow the checksum and download steps in the root [README](README.md), and do not commit downloaded catalogue data, private evaluator data, caches, or credentials.

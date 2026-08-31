@@ -1,8 +1,0 @@
-{
-  "name": "m2_adaptive_hard_constraints",
-  "scenario_hard_match_multiplier": {
-    "buying": 1.15,
-    "browsing": 1.35,
-    "intent_override": 1.15
-  }
-}
