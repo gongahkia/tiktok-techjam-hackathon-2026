@@ -1,0 +1,12 @@
+{
+  "audit_version": "m3-release-audit-v1",
+  "tracked_file_count": 97,
+  "max_file_bytes": 5242880,
+  "findings": {
+    "secrets": [],
+    "forbidden_artifacts": [],
+    "oversized_files": [],
+    "broken_links": []
+  },
+  "passed": true
+}

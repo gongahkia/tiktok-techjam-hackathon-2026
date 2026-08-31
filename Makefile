@@ -2,7 +2,7 @@ PYTHON ?= python3
 CATALOG ?= data/catalog.jsonl
 CACHE_DIR ?= .facetflow_cache
 
-.PHONY: test test-warnings build index evaluate demo verify
+.PHONY: test test-warnings build index evaluate demo audit verify
 
 test:
 	@$(PYTHON) -m unittest discover -v
@@ -22,4 +22,7 @@ evaluate:
 demo:
 	@FACETFLOW_USE_OPENAI=0 FACETFLOW_SPARSE_ONLY=1 FACETFLOW_CACHE_DIR=$(CACHE_DIR) $(PYTHON) -m facetflow.demo --scenario main --explain --catalog $(CATALOG)
 
-verify: test-warnings build index demo evaluate
+audit:
+	@$(PYTHON) scripts/release_audit.py --output reports/m3_hygiene_audit.json
+
+verify: test-warnings build index demo evaluate audit

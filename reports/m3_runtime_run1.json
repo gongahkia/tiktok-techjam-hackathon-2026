@@ -1,0 +1,15 @@
+{
+  "catalog": "data/catalog.jsonl",
+  "cache_dir": "/tmp/facetflow-m3-runtime-one.IK6IPF",
+  "cold_initialization_seconds": 21.381028,
+  "response_count": 40,
+  "response_latency_ms": {
+    "median": 624.400522,
+    "p95": 758.16126,
+    "max": 780.177858
+  },
+  "index_size_bytes": 215601152,
+  "peak_rss_kib": 29480,
+  "network_calls": 0,
+  "reported_tokens": 0
+}

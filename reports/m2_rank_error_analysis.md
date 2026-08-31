@@ -17,4 +17,4 @@ Version: `m2-rank-diagnostics-v1`. Catalog fingerprint: `da979b05a68af864cb0dcf9
 - target component lower than displayed rank-10 competitor: `{"hard_match": 1, "hard_violation": 8, "lexical_rank": 61, "negative_penalty": 2, "profile": 25}`. This is descriptive score evidence, not causal attribution.
 - clarification outcomes: `{"asked_and_candidate_rank_improved": 92, "asked_without_candidate_rank_improvement": 71, "asked_without_resolved_constraint": 11, "not_asked": 26}`.
 
-The machine-readable companion records every terminal turn, extracted constraints, candidate/pre-filter/post-filter/final ranks, target and competitor facets, feature contributions, filtering status, clarification path, and failure classification.
+The machine-readable companion records every official miss with terminal-turn constraints, candidate/pre-filter/post-filter/final ranks, target and competitor facets, feature contributions, filtering status, clarification path, and failure classification. Aggregate values retain all 200 sessions.

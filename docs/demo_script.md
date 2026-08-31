@@ -1,6 +1,6 @@
 # Three-minute demo script
 
-Word count: approximately 365 words. At 125–135 words per minute, this is approximately 2:42–2:55.
+Word count: 344 words. At 125–135 words per minute, this is approximately 2:33–2:45.
 
 ## 0:00–0:20 — problem
 

@@ -281,7 +281,7 @@ def markdown(result: dict) -> str:
         f"- target component lower than displayed rank-10 competitor: `{json.dumps(summary['component_loss_frequency_against_rank_ten'], sort_keys=True)}`. This is descriptive score evidence, not causal attribution.",
         f"- clarification outcomes: `{json.dumps(summary['clarification_effects'], sort_keys=True)}`.",
         "",
-        "The machine-readable companion records every terminal turn, extracted constraints, candidate/pre-filter/post-filter/final ranks, target and competitor facets, feature contributions, filtering status, clarification path, and failure classification.",
+        "The machine-readable companion records every official miss with terminal-turn constraints, candidate/pre-filter/post-filter/final ranks, target and competitor facets, feature contributions, filtering status, clarification path, and failure classification. Aggregate values retain all 200 sessions.",
     ])
     return "\n".join(lines) + "\n"
 
@@ -304,7 +304,8 @@ def main() -> None:
             "catalog_sha256": catalog_fingerprint(args.catalog),
             "candidate_depth": 300,
             "summary": aggregate(records),
-            "records": records,
+            "successful_session_count": sum(record["failure_type"] is None for record in records),
+            "records": [record for record in records if record["failure_type"]],
         }
     finally:
         index.close()
