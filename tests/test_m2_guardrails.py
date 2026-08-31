@@ -49,7 +49,7 @@ class M2GeneralizationGuardrailTest(unittest.TestCase):
                     agent.reset("session", PROFILE)
                     response = agent.respond("session", "I'm looking for Men Shoes, but I'm still exploring.", 1, 10)
                 finally:
-                    agent.catalog.close()
+                    agent.close()
             self.assertEqual(response["usage"], {"prompt_tokens": 0, "completion_tokens": 0})
             self.assertTrue(response["recommendations"])
 

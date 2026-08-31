@@ -111,13 +111,16 @@ class FacetFlowIntegrationTest(unittest.TestCase):
             catalog_path = root / "catalog.jsonl"
             catalog_path.write_text("".join(json.dumps(row) + "\n" for row in catalog_rows()), encoding="utf-8")
             index = CatalogIndex(catalog_path, root / "cache")
-            state = DialogueState.create("session", PROFILE)
-            state.ingest("I'm looking for Men Shoes. A key requirement is: cotton.", 1)
-            result = SparseRetriever(index).retrieve(state, 10)
-            self.assertEqual(result.ranked[0].product.parent_asin, "A")
-            state.ingest("I need something without leather.", 2)
-            result = SparseRetriever(index).retrieve(state, 10)
-            self.assertNotIn("B", [item.product.parent_asin for item in result.ranked])
+            try:
+                state = DialogueState.create("session", PROFILE)
+                state.ingest("I'm looking for Men Shoes. A key requirement is: cotton.", 1)
+                result = SparseRetriever(index).retrieve(state, 10)
+                self.assertEqual(result.ranked[0].product.parent_asin, "A")
+                state.ingest("I need something without leather.", 2)
+                result = SparseRetriever(index).retrieve(state, 10)
+                self.assertNotIn("B", [item.product.parent_asin for item in result.ranked])
+            finally:
+                index.close()
 
     def test_contract_and_identical_fresh_sessions_are_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -125,13 +128,16 @@ class FacetFlowIntegrationTest(unittest.TestCase):
             catalog_path = root / "catalog.jsonl"
             catalog_path.write_text("".join(json.dumps(row) + "\n" for row in catalog_rows()), encoding="utf-8")
             agent = Agent(catalog_path)
-            responses = []
-            for session_id in ("one", "two"):
-                agent.reset(session_id, PROFILE)
-                responses.append(agent.respond(session_id, "I'm looking for Men Shoes. A key requirement is: cotton.", 1, 10))
-            self.assertEqual(responses[0], responses[1])
-            self.assertEqual(set(responses[0]), {"message", "ask_attribute", "recommendations", "usage"})
-            self.assertTrue(all(item["parent_asin"] in {"A", "B", "C"} for item in responses[0]["recommendations"]))
+            try:
+                responses = []
+                for session_id in ("one", "two"):
+                    agent.reset(session_id, PROFILE)
+                    responses.append(agent.respond(session_id, "I'm looking for Men Shoes. A key requirement is: cotton.", 1, 10))
+                self.assertEqual(responses[0], responses[1])
+                self.assertEqual(set(responses[0]), {"message", "ask_attribute", "recommendations", "usage"})
+                self.assertTrue(all(item["parent_asin"] in {"A", "B", "C"} for item in responses[0]["recommendations"]))
+            finally:
+                agent.close()
 
     def test_question_policy_asks_only_when_unresolved(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -139,13 +145,37 @@ class FacetFlowIntegrationTest(unittest.TestCase):
             catalog_path = root / "catalog.jsonl"
             catalog_path.write_text("".join(json.dumps(row) + "\n" for row in catalog_rows()), encoding="utf-8")
             index = CatalogIndex(catalog_path, root / "cache")
-            state = DialogueState.create("session", PROFILE)
-            state.ingest("I'm looking for shoes, but I'm still exploring.", 1)
-            result = SparseRetriever(index).retrieve(state, 10)
-            policy = ClarificationPolicy()
-            self.assertEqual(policy.decide(state, result.ranked).ask_attribute, "other")
-            state.asked_attributes.add("other")
-            self.assertIsNone(policy.decide(state, result.ranked).ask_attribute)
+            try:
+                state = DialogueState.create("session", PROFILE)
+                state.ingest("I'm looking for shoes, but I'm still exploring.", 1)
+                result = SparseRetriever(index).retrieve(state, 10)
+                policy = ClarificationPolicy()
+                self.assertEqual(policy.decide(state, result.ranked).ask_attribute, "other")
+                state.asked_attributes.add("other")
+                self.assertIsNone(policy.decide(state, result.ranked).ask_attribute)
+            finally:
+                index.close()
+
+    def test_explain_is_opt_in_and_does_not_change_official_response(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            catalog_path = root / "catalog.jsonl"
+            catalog_path.write_text("".join(json.dumps(row) + "\n" for row in catalog_rows()), encoding="utf-8")
+            normal = Agent(catalog_path)
+            explained = Agent(catalog_path)
+            try:
+                for agent, session_id in ((normal, "normal"), (explained, "explained")):
+                    agent.reset(session_id, PROFILE)
+                normal_response = normal.respond("normal", "I'm looking for Men Shoes, but I'm still exploring.", 1, 10)
+                explained_response = explained.respond("explained", "I'm looking for Men Shoes, but I'm still exploring.", 1, 10)
+                explanation = explained.explain("explained")
+                self.assertEqual(normal_response, explained_response)
+                self.assertEqual(set(normal_response), {"message", "ask_attribute", "recommendations", "usage"})
+                self.assertEqual(explanation["intent"], "browsing")
+                self.assertEqual(explanation["clarification"]["asked"], "other")
+            finally:
+                normal.close()
+                explained.close()
 
 
 if __name__ == "__main__":
