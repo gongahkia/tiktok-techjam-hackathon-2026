@@ -1,6 +1,6 @@
-# Clark the Clerk — deterministic conversational shopping
+# FacetFlow — deterministic conversational shopping
 
-Clark the Clerk is a fully offline, stateful shopping copilot that turns a changing conversation into grounded catalogue recommendations.
+FacetFlow is a fully offline, stateful shopping copilot that turns a changing conversation into grounded catalogue recommendations.
 
 It is the TikTok TechJam 2026 Track 4 submission candidate. The shipped system has no API key, network dependency, model download, vector database, or generative model.
 
@@ -10,7 +10,7 @@ Ordinary keyword search loses context when a shopper adds a must-have, excludes 
 
 ## The solution
 
-Clark the Clerk keeps conversational understanding, preference state, shopping intent, retrieval, ranking, and clarification as specialised deterministic components. It remembers explicit preferences, applies corrections and exclusions, distinguishes browsing from active buying, and only asks one focused question when it can improve a broad search.
+FacetFlow keeps conversational understanding, preference state, shopping intent, retrieval, ranking, and clarification as specialised deterministic components. It remembers explicit preferences, applies corrections and exclusions, distinguishes browsing from active buying, and only asks one focused question when it can improve a broad search.
 
 ```mermaid
 flowchart LR
@@ -27,7 +27,7 @@ Catalogue retrieval and ranking remain deterministic and only return IDs from th
 
 ## Quick start
 
-Clark the Clerk needs Python 3.10–3.14, SQLite FTS5, and the official 50,000-product catalogue. It has no runtime third-party dependencies.
+FacetFlow needs Python 3.10–3.14, SQLite FTS5, and the official 50,000-product catalogue. It has no runtime third-party dependencies.
 
 1. Download `catalog.jsonl.gz` and `SHA256SUMS` from the challenge release.
 2. Verify and unpack the catalogue:
@@ -47,9 +47,9 @@ Clark the Clerk needs Python 3.10–3.14, SQLite FTS5, and the official 50,000-p
 The first run builds an ignored SQLite/FTS cache beside the project; later runs reuse it. `make demo` uses the real production agent, explains the current state, and makes no network request. If the catalogue is missing, the demo exits with a download-path error. For a four-scenario recording run, use:
 
 ```bash
-Clark the Clerk_USE_OPENAI=0 Clark the Clerk_SPARSE_ONLY=1 \
-  python3 -m Clark the Clerk.demo --scenario all --explain --format terminal \
-  --catalog data/catalog.jsonl --cache-dir .Clark the Clerk_cache
+FacetFlow_USE_OPENAI=0 FacetFlow_SPARSE_ONLY=1 \
+  python3 -m FacetFlow.demo --scenario all --explain --format terminal \
+  --catalog data/catalog.jsonl --cache-dir .FacetFlow_cache
 ```
 
 See the step-by-step [judge quick start](docs/submission/judge_quickstart.md) for clean-machine setup and troubleshooting.
@@ -67,7 +67,7 @@ The terminal view shows the current interpreted state, shopping intent, exclusio
 
 These are public evaluator results, not hidden-test results. Hidden-test performance is unknown, and public-data optimisation does not prove generalisation. Three final runs were byte-identical.
 
-| Metric | Starter baseline | Clark the Clerk | Absolute change | Multiplicative change |
+| Metric | Starter baseline | FacetFlow | Absolute change | Multiplicative change |
 | --- | ---: | ---: | ---: | ---: |
 | TechnicalScore | 0.106710 | 0.458587 | +0.351877 | 4.297507× |
 | HitRate@10 | 0.125000 | 0.530000 | +0.405000 | 4.240000× |
@@ -78,7 +78,7 @@ The canonical evidence, exact outputs, and fingerprint `92036d…91ff9` are in [
 
 ## Why deterministic components
 
-Clark the Clerk uses structured dialogue state, catalogue-aware parsing, sparse retrieval, field weighting, deterministic reranking, and a turn-aware clarification policy together. It does not present internal modules as autonomous agents. This separation keeps product truth grounded in the frozen catalogue and makes repeated runs reproducible.
+FacetFlow uses structured dialogue state, catalogue-aware parsing, sparse retrieval, field weighting, deterministic reranking, and a turn-aware clarification policy together. It does not present internal modules as autonomous agents. This separation keeps product truth grounded in the frozen catalogue and makes repeated runs reproducible.
 
 M2 tested three bounded reranking hypotheses on a locked shadow suite; none justified replacing the production reranker. We also evaluated a model-primary language interpreter through 120 live provider invocations. Although it improved selected development categories, its interpretations were not stable enough for promotion: development stability was 10% across all three repetitions and 23.33% pairwise, with holdout intentionally untouched. The submitted system therefore remains deterministic and offline.
 
@@ -87,7 +87,7 @@ M2 tested three bounded reranking hypotheses on a locked shadow suite; none just
 | Path | Purpose |
 | --- | --- |
 | `starter/agent.py` | Official `Agent` entry point |
-| `Clark the Clerk/` | Deterministic dialogue, retrieval, ranking, policy, and demo code |
+| `FacetFlow/` | Deterministic dialogue, retrieval, ranking, policy, and demo code |
 | `evaluator/` | Local public evaluator |
 | `data/` | Public sessions and catalogue acquisition notes |
 | `reports/` | Reproducible public evaluation and submission evidence |
@@ -99,14 +99,14 @@ M2 tested three bounded reranking hypotheses on a locked shadow suite; none just
 make test-warnings
 make index
 make evaluate
-python3 -m Clark the Clerk.demo --scenario all --explain --format terminal
+python3 -m FacetFlow.demo --scenario all --explain --format terminal
 ```
 
 `make evaluate` writes a public evaluator replay with zero reported model tokens. For the complete clean-machine workflow, see [reproducibility.md](docs/reproducibility.md). The release checklist separates automated checks from actions that require a human account or judgement.
 
 ## Limitations
 
-Clark the Clerk is lexical-first and operates only on the frozen competition catalogue. Boundary sessions can be underdetermined, and it does not provide cross-store search, live pricing, checkout, customer service, external browsing, or claims about private-evaluator performance. Performance timing is host-dependent; the recorded profiling results are evidence, not a universal latency guarantee.
+FacetFlow is lexical-first and operates only on the frozen competition catalogue. Boundary sessions can be underdetermined, and it does not provide cross-store search, live pricing, checkout, customer service, external browsing, or claims about private-evaluator performance. Performance timing is host-dependent; the recorded profiling results are evidence, not a universal latency guarantee.
 
 ## Data, contributions, and submission materials
 
