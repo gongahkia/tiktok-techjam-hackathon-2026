@@ -1,4 +1,4 @@
-# FacetFlow — deterministic conversational shopping
+# `FacetFlow` 
 
 FacetFlow is a fully offline, stateful shopping copilot that turns a changing conversation into grounded catalogue recommendations.
 
