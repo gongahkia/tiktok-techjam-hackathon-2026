@@ -1,119 +1,113 @@
-# FacetFlow — offline conversational shopping retrieval
+# FacetFlow — deterministic conversational shopping
 
-FacetFlow is a competition submission for TikTok TechJam 2026 Track 4. It turns vague shopping intent into a small, verified set of frozen-catalog products, remembers corrections, and asks only one high-value clarification when the current candidate set remains ambiguous.
+FacetFlow is a fully offline, stateful shopping copilot that turns a changing conversation into grounded catalogue recommendations.
 
-The thesis is simple: the useful innovation is a deterministic retrieval-and-dialogue policy, not an LLM-agent swarm. Field-aware lexical search broadens a request; typed state and constraint verification narrow it; a turn-aware question policy avoids withholding recommendations when it can already provide useful options.
+It is the TikTok TechJam 2026 Track 4 submission candidate. The shipped system has no API key, network dependency, model download, vector database, or generative model.
 
-## Competition constraints
+## The problem
 
-The official evaluator uses a fixed 50,000-product Clothing, Shoes & Jewelry catalog, exact `parent_asin` matching, ten turns maximum, and a public 200-session development set. Private scoring may run offline. See [the official specification](docs/competition_specification.md), [contract](docs/agent_api_contract.json), and [submission rules](docs/submission_rules.md).
+Ordinary keyword search loses context when a shopper adds a must-have, excludes a material, or corrects an earlier requirement. A useful shopping copilot must preserve the right state across turns without inventing products or treating every broad request as a purchase decision.
 
-FacetFlow's default execution has no network, API key, model download, vector database, or generative model dependency. It uses only the Python standard library and SQLite FTS5.
+## The solution
 
-## Architecture
+FacetFlow keeps conversational understanding, preference state, shopping intent, retrieval, ranking, and clarification as specialised deterministic components. It remembers explicit preferences, applies corrections and exclusions, distinguishes browsing from active buying, and only asks one focused question when it can improve a broad search.
 
-```text
-catalog JSONL -> fingerprinted SQLite FTS cache -> bounded sparse candidates
-user message -> typed belief state -> constraint verifier / reranker -> valid Top-K IDs
-                                        |                      |
-                                        +-> question value ----+-> concise contract response
+```mermaid
+flowchart LR
+    U[User message] --> I[Preference and intent interpretation]
+    I --> S[Session state]
+    S --> R[Catalogue retrieval]
+    R --> D[Deterministic reranking]
+    D --> C{Need clarification?}
+    C -->|yes| Q[One focused question]
+    C -->|no| O[Grounded recommendations]
 ```
 
-The implementation is described in [docs/architecture.md](docs/architecture.md). `starter/agent.py` remains the official thin entry point; the substantive code is in `facetflow/`.
+Catalogue retrieval and ranking remain deterministic and only return IDs from the frozen catalogue. See [the architecture](docs/architecture.md) for the component boundaries.
 
-- Catalog normalization retains the immutable JSONL as its raw audit source and creates an ignored, versioned local cache.
-- Dialogue state tracks category context, hard/soft/negative beliefs, profile priors, provenance, clears, overrides, prior questions, and seen products.
-- Retrieval uses weighted title/category/features/details FTS, phrase-like coverage boosts, explicit material/color/budget checks, deterministic tie breaks, and controlled browsing diversity.
-- The clarification policy estimates product-type entropy and applies a turn-cost penalty. It asks at most one question and supplies recommendations in that same turn.
+## Quick start
 
-There is intentionally no dense model in the default configuration. It has not yet earned its initialization time, cache size, memory, or offline distribution cost against the measured sparse core. The cache means individual queries do not scan the 50,000-row catalog.
+FacetFlow needs Python 3.10–3.14, SQLite FTS5, and the official 50,000-product catalogue. It has no runtime third-party dependencies.
 
-## Setup
+1. Download `catalog.jsonl.gz` and `SHA256SUMS` from the challenge release.
+2. Verify and unpack the catalogue:
 
-Python 3.10–3.14 is supported; the measured environment used Python 3.14.7. There are no runtime third-party dependencies.
+   ```bash
+   sha256sum -c SHA256SUMS
+   gzip -dk catalog.jsonl.gz
+   mv catalog.jsonl data/catalog.jsonl
+   ```
 
-```bash
-python3 -m unittest discover -v
-python3 scripts/build_index.py --catalog data/catalog.jsonl --cache-dir .facetflow_cache
-python3 -m evaluator.local_evaluator --catalog data/catalog.jsonl --dataset data/public_set.jsonl --output results.json
-```
+3. Run the real offline demo:
 
-Download `catalog.jsonl.gz` and `SHA256SUMS` from the challenge release, verify the release checksum, then decompress it to the ignored local path:
+   ```bash
+   make demo
+   ```
 
-```bash
-sha256sum -c SHA256SUMS
-gzip -dk catalog.jsonl.gz
-mv catalog.jsonl data/catalog.jsonl
-```
-
-For an auditable measurement with runtime metadata:
-
-```bash
-python3 scripts/profile_catalog.py
-python3 scripts/run_experiment.py \
-  --experiment-id sparse-stateful-bounded-v1 \
-  --output reports/experiment_sparse_stateful_v1.json
-python3 scripts/analyze_errors.py \
-  --result reports/experiment_sparse_stateful_v1.json
-```
-
-`FACETFLOW_CACHE_DIR` can point the derived index at a writable local cache. `FACETFLOW_SPARSE_ONLY=1` selects the measured default; `0` currently records an explicit sparse fallback because no dense artifact is packaged. `FACETFLOW_USE_OPENAI=0` is compatible with the default path; FacetFlow does not inspect an API key or make an API call.
-
-A clean-machine walkthrough, including a one-command verification target, is in [docs/reproducibility.md](docs/reproducibility.md). After the catalog is present, the shortest judge-facing demo is:
-
-```bash
-python3 -m facetflow.demo --scenario main --explain
-```
-
-The explanation is opt-in diagnostic output; it does not add fields to the official API response or affect ranking.
-
-## Measured public results
-
-The reproduced unmodified starter baseline is recorded in [reports/baseline_metrics.json](reports/baseline_metrics.json). The final three-run evidence is in [reports/final_evaluation.md](reports/final_evaluation.md) and the exact official outputs are `reports/final_evaluation_run{1,2,3}.json`.
-
-| Configuration | HitRate@10 | MRR | MTTC | Technical score |
-| --- | ---: | ---: | ---: | ---: |
-| Official weak BM25 baseline | 0.125000 | 0.068034 | 9.810000 | 0.106710 |
-| FacetFlow final offline configuration | 0.530000 | 0.325290 | 6.200000 | 0.458587 |
-| Initial stateful sparse experiment (not final) | 0.550000 | 0.347373 | 6.035000 | 0.478512 |
-
-| Scenario | Baseline HitRate@10 | FacetFlow final HitRate@10 |
-| --- | ---: | ---: |
-| Buying | 0.237500 | 0.625000 |
-| Browsing | 0.025000 | 0.575000 |
-| Intent override | 0.133333 | 0.333333 |
-| Boundary | 0.000000 | 0.000000 |
-
-The three final official runs were byte-identical. Clean-cache profiling measured 15.67s agent initialization, 405.73ms median response latency, 442.26ms p95, 93.8 MiB agent RSS, and a 205.6 MiB derived index; the end-to-end official evaluator used 84.74–99.11s and 225,676–226,644 KiB RSS. Zero tokens were reported. Full ablation and repeated-final-run evidence is in the final evaluation report.
-
-## M2 generalization audit
-
-M2 keeps the M1 production retriever as the default. It adds offline score-level inspection and a catalog-only, split shadow suite to test small ranking changes without fitting public evaluator messages or labels. Three predeclared candidates—lexical dampening, category emphasis, and adaptive hard-constraint emphasis—did not clear the locked development gate, so none was promoted. The selected unchanged M1 configuration scored exact HitRate@10/MRR of 1.000000/1.000000 and browsing acceptable recall@10 of 0.695652 on the one-time 182-case shadow holdout. Final public outputs are byte-identical to M1. The latest clean-host timing did not reproduce the earlier M1 latency baseline; see the explicit limitation in [the generalization result](reports/m2_generalization_results.md). See also [the ablation ledger](reports/m2_reranker_ablations.md), [the locked-suite design](reports/m2_shadow_eval_design.md), and [the decision record](docs/adr/0002-m2-reranker-decision.md).
-
-Reproduce the shadow checks with:
+The first run builds an ignored SQLite/FTS cache beside the project; later runs reuse it. `make demo` uses the real production agent, explains the current state, and makes no network request. If the catalogue is missing, the demo exits with a download-path error. For a four-scenario recording run, use:
 
 ```bash
 FACETFLOW_USE_OPENAI=0 FACETFLOW_SPARSE_ONLY=1 \
-  python3 scripts/m2_run_shadow_eval.py \
-  --manifest data/m2_shadow_manifest.json --catalog data/catalog.jsonl \
-  --split development --output reports/m2_shadow_m1_development.json
+  python3 -m facetflow.demo --scenario all --explain --format terminal \
+  --catalog data/catalog.jsonl --cache-dir .facetflow_cache
 ```
 
-## A compact multi-turn example
+See the step-by-step [judge quick start](docs/submission/judge_quickstart.md) for clean-machine setup and troubleshooting.
 
-1. Customer: “I’m looking for men’s shoes, but I’m still exploring.”
-2. FacetFlow: returns diverse catalog-grounded starting options and asks: “Which single requirement matters most for this choice?”
-3. Customer: “For that, what matters is: black; leather.”
-4. FacetFlow: records both hard beliefs, verifies them against catalog text/facets, stops asking, and returns the deterministic best matching IDs.
-5. Customer: “Actually, ignore my earlier preference. What I need is: cotton.”
-6. FacetFlow: clears the initial soft preference, retains category context, and ranks from the updated belief state rather than replaying stale chat text.
+## What the demo shows
 
-## Limitations and next work
+- Preference memory across turns
+- Correction and override of a stale requirement
+- Exclusion safety for a forbidden material
+- A useful clarification for a genuinely broad browsing request
 
-Boundary sessions with no preference remain underdetermined under exact-product scoring. The present system is lexical-first and small typo/variant normalization is intentionally limited. The M2 audit found most public misses are ranking-stage but did not justify any tested reranker change; future work needs a newly locked catalog-only suite before testing a different candidate-generation or ranking approach.
+The terminal view shows the current interpreted state, shopping intent, exclusions, clarification reason, and real returned catalogue IDs. It never adds explainability fields to the official `Agent.respond` contract.
 
-No paid API calls have been made. Optional online development tooling is not implemented, so there is no API cost.
+## Public evaluator results
 
-## Demo and Devpost notes
+These are public evaluator results, not hidden-test results. Hidden-test performance is unknown, and public-data optimisation does not prove generalisation. Three final runs were byte-identical.
 
-For a three-minute demo, show the belief-state trace across the example above, contrast it with stateless retrieval, then display the public metric table and offline command. The accompanying Devpost material should disclose the frozen-data scope, zero runtime API cost, cache build step, benchmark command, and the boundary limitation rather than claiming private-set performance.
+| Metric | Starter baseline | FacetFlow | Absolute change | Multiplicative change |
+| --- | ---: | ---: | ---: | ---: |
+| TechnicalScore | 0.106710 | 0.458587 | +0.351877 | 4.297507× |
+| HitRate@10 | 0.125000 | 0.530000 | +0.405000 | 4.240000× |
+| MRR | 0.068034 | 0.325290 | +0.257256 | 4.781286× |
+| Browsing HitRate@10 | 0.025000 | 0.575000 | +0.550000 | 23.000000× |
+
+The canonical evidence, exact outputs, and fingerprint `92036d…91ff9` are in [the final submission evidence](reports/final_submission_evidence.md) and [the detailed public evaluation](reports/final_evaluation.md).
+
+## Why deterministic components
+
+FacetFlow uses structured dialogue state, catalogue-aware parsing, sparse retrieval, field weighting, deterministic reranking, and a turn-aware clarification policy together. It does not present internal modules as autonomous agents. This separation keeps product truth grounded in the frozen catalogue and makes repeated runs reproducible.
+
+M2 tested three bounded reranking hypotheses on a locked shadow suite; none justified replacing the production reranker. We also evaluated a model-primary language interpreter through 120 live provider invocations. Although it improved selected development categories, its interpretations were not stable enough for promotion: development stability was 10% across all three repetitions and 23.33% pairwise, with holdout intentionally untouched. The submitted system therefore remains deterministic and offline.
+
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| `starter/agent.py` | Official `Agent` entry point |
+| `facetflow/` | Deterministic dialogue, retrieval, ranking, policy, and demo code |
+| `evaluator/` | Local public evaluator |
+| `data/` | Public sessions and catalogue acquisition notes |
+| `reports/` | Reproducible public evaluation and submission evidence |
+| `docs/submission/` | Judge quick start, Devpost draft, video package, and release checklist |
+
+## Reproduce and test
+
+```bash
+make test-warnings
+make index
+make evaluate
+python3 -m facetflow.demo --scenario all --explain --format terminal
+```
+
+`make evaluate` writes a public evaluator replay with zero reported model tokens. For the complete clean-machine workflow, see [reproducibility.md](docs/reproducibility.md). The release checklist separates automated checks from actions that require a human account or judgement.
+
+## Limitations
+
+FacetFlow is lexical-first and operates only on the frozen competition catalogue. Boundary sessions can be underdetermined, and it does not provide cross-store search, live pricing, checkout, customer service, external browsing, or claims about private-evaluator performance. Performance timing is host-dependent; the recorded profiling results are evidence, not a universal latency guarantee.
+
+## Data, contributions, and submission materials
+
+The catalogue derives from Amazon Reviews 2023; see [DATA_ATTRIBUTION.md](DATA_ATTRIBUTION.md). Team contributions require final confirmation and are intentionally left as concise placeholders in [the Devpost draft](docs/submission/devpost.md). The complete recording package and manual handoff are in [docs/submission](docs/submission/).
